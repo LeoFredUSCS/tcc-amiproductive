@@ -8,6 +8,7 @@ import {
   Menu,
   Tray
 } from "electron";
+
 import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
 import installExtension from "electron-devtools-installer";
 const isDevelopment = process.env.NODE_ENV !== "production";
@@ -24,9 +25,9 @@ protocol.registerSchemesAsPrivileged([
 
 async function createWindow() {
   mainWindow = new BrowserWindow({
-    minWidth: 800,
+    minWidth: 1152,
     minHeight: 600,
-    frame: false,
+    // frame: false,
     show: false,
     movable: true,
     title: "News App",

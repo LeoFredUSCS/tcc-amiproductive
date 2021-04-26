@@ -1,18 +1,43 @@
 <template>
-  <div class="home">
-    <HelloWorld />
+  <div class="flex w-full h-full">
+    <div class="main-content w-full overflow-x-auto">
+      <TabMenu />
+      <DailyResume> </DailyResume>
+    </div>
+    <div class="sidebar  w-4/12 h-full"></div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import DailyResume from "@/components/sections/dailyresume/DailyResume";
+import TabMenu from "@/components/UI/TabMenu";
 
 export default {
   name: "Home",
-  title: "Welcome to your Vue.js App",
   components: {
-    HelloWorld
+    DailyResume,
+    TabMenu
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.main-content {
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  // /* Track */
+  // &::-webkit-scrollbar-track {
+  //   box-shadow: inset 0 0 5px grey;
+  //   border-radius: 10px;
+  // }
+
+  // /* Handle */
+  // &::-webkit-scrollbar-thumb {
+  //   background: darkgray;
+  //   border-radius: 10px;
+  // }
+}
+</style>

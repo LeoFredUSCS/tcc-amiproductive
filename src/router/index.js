@@ -10,10 +10,10 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
-    meta: { title: "WOW" }
+    meta: { title: "Home" }
   },
   {
-    path: "/about",
+    path: "/2",
     name: "About",
     meta: { title: "About" },
 
