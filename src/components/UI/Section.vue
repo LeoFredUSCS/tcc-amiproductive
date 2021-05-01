@@ -1,6 +1,6 @@
 <template>
   <div
-    class="section m-5 bg-white rounded-3xl border border-gray-300 shadow-md p-6"
+    class="section m-5 bg-white rounded-xl border border-gray-300 shadow-md p-6"
   >
     <div class="flex flex-col">
       <div class="w-full text-center font-bold text-lg mb-8">
