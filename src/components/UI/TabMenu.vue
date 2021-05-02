@@ -13,18 +13,20 @@
                 class="whitespace-nowrap py-4 w-2/4 border-b-2 font-medium text-sm"
                 :class="activeClass[$route.path === '/' ? 'active' : 'default']"
               >
-                Aba 1
+                Resumo
               </router-link>
 
               <router-link
-                to="/2"
+                to="/tracking"
                 class="whitespace-nowrap py-4 w-2/4 border-b-2 font-medium text-sm"
                 :class="
-                  activeClass[$route.path === '/2' ? 'active' : 'default']
+                  activeClass[
+                    $route.path === '/tracking' ? 'active' : 'default'
+                  ]
                 "
                 aria-current="page"
               >
-                Aba 2
+                Rastreamento
               </router-link>
             </nav>
           </div>
@@ -38,7 +40,7 @@
 export default {
   data() {
     return {
-      active: 1
+      active: "/"
     };
   },
   computed: {
@@ -50,11 +52,7 @@ export default {
       };
     }
   },
-  methods: {
-    select(select) {
-      this.active = select;
-    }
-  }
+  methods: {}
 };
 </script>
 
