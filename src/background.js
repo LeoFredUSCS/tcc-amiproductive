@@ -63,6 +63,9 @@ app.on("window-all-closed", () => {
     app.quit()
   }
 })
+app.once("before-quit", () => {
+  window.removeAllListeners("close")
+})
 
 app.on("activate", () => {
   if (BrowserWindow.getAllWindows().length === 0) createWindow()

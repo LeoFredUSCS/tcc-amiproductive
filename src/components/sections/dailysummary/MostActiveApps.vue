@@ -5,7 +5,7 @@
       <div
         v-for="i in 3"
         :key="i"
-        class="icon shadow-md w-12 h-12 border-2 rounded-full border-gray-100 mr-3"
+        class="icon  w-12 h-12 border-2 rounded-full border-gray-100 mr-3"
       ></div>
     </div>
   </div>

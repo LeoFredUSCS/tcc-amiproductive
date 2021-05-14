@@ -1,7 +1,7 @@
 <template>
   <Section class="new-app-section h-auto overflow-y-auto">
     <template v-slot:title>
-      <h2>Novo app foi identificado</h2>
+      <h2>Novos apps identificados</h2>
     </template>
     <template v-slot:content>
       <ul>

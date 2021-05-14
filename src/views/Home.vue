@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-screen flex auto-rows-min gap-0 max-h-screen">
     <div
-      class="main-content overflow-y-auto flex flex-col gap-4 flex-grow px-4"
+      class="main-content overflow-y-auto flex flex-col gap-6 flex-grow px-4 py-4"
     >
       <TabMenu />
       <DailySummarySection />
@@ -9,7 +9,7 @@
       <PeriodsTagsSection />
     </div>
     <div
-      class="sidebar h-screen  flex flex-col flex-grow flex-shrink gap-4 pr-4 py-2"
+      class="sidebar h-full flex flex-col flex-grow flex-shrink gap-6 pr-4 py-4"
     >
       <EditAppSection />
       <NewAppSection />
@@ -41,7 +41,7 @@ export default {
 
 <style lang="scss" scoped>
 .main-content {
-  @include scroll-bar(5px);
+  // @include scroll-bar(5px);
 }
 
 .sidebar {

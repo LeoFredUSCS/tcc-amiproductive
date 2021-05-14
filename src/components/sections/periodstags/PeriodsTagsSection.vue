@@ -21,8 +21,8 @@
                 <Tag>Tag 1</Tag>
                 <div class="bar rounded-full"></div>
               </div>
-              <div class="share-wrapper second-tag flex flex-col items-start">
-                <Tag>Tag 2</Tag>
+              <div class="share-wrapper second-tag flex flex-col items-start ">
+                <Tag :alt-color="'primary-light'">Tag 2</Tag>
                 <div class="bar rounded-full"></div>
               </div>
               <div class="share-wrapper others-tag flex flex-col items-center">
@@ -73,12 +73,12 @@ export default {
     }
     &.first-tag {
       .bar {
-        background: black;
+        background: $primary-dark;
       }
     }
     &.second-tag {
       .bar {
-        background: #999;
+        background: $primary-light;
       }
     }
     &.others-tag {

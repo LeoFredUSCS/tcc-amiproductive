@@ -1,5 +1,10 @@
 @mixin shadow {
-  box-shadow: 5px 10px 20px #d2dce9, -7px -7px 15px #ffffff;
+  // box-shadow: 5px 10px 20px #d2dce9, -7px -7px 15px #ffffff;
+  box-shadow: 0.6em 0.6em 1.2em #d2dce9, -0.5em -0.5em 1em #ffffff;
+}
+@mixin shadow-small {
+  // box-shadow: 5px 10px 20px #d2dce9, -7px -7px 15px #ffffff;
+  box-shadow: 0.3em 0.3em 0.6em #d2dce9, -0.25em -0.25em 0.5em #ffffff;
 }
 
 @mixin scroll-bar($width) {
@@ -13,7 +18,7 @@
     pointer-events: none;
   }
   &::-webkit-scrollbar-thumb {
-    background: #333;
+    background: #ccc;
     border-radius: 8px;
     margin: 10px 0;
   }

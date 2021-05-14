@@ -1,7 +1,7 @@
 <template>
   <Section class="edit-app-container h-auto overflow-y-auto">
     <template v-slot:title>
-      <h2>Edite / Classifique seus apps</h2>
+      <h2>Classifique seus apps</h2>
     </template>
     <template v-slot:content>
       <div class="flex flex-col">

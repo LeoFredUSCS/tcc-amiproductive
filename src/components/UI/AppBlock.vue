@@ -1,9 +1,9 @@
 <template>
   <li
     class="flex items-center app mb-4"
-    :class="{ 'p-3 border border-gray-300 rounded-lg': !isTracked }"
+    :class="{ 'p-4 border border-gray-300 rounded-lg': !isTracked }"
   >
-    <div class="shadow-md app-icon w-12 h-12 rounded-full overflow-hidden mr-3">
+    <div class="icon app-icon w-12 h-12 rounded-full overflow-hidden mr-3">
       <div class="app-icon-image w-full h-full "></div>
     </div>
     <div class="app-edit flex flex-col flex-grow">
@@ -19,18 +19,26 @@
           name="tags"
           id="tag-input"
           placeholder="Adicione categorias"
-          class="rounded-md border border-gray-300 p-2 hover:border-black focus:border-black w-full"
+          class="rounded-md border border-gray-300 p-2 hover:border-primary focus:border-primary w-full"
         />
       </div>
       <div
         class="app-user-actions flex items-center justify-between mt-2 font-bold text-xs"
         v-if="!isTracked"
       >
-        <div
-          class="cursor-pointer hover:font-bold inline-flex items-center justify-center p-2 px-3 h-full border border-black font-medium rounded-md"
-        >
-          <EyeOffIcon class="w-4 mr-2" />
-          <span class="">Bloquear</span>
+        <div class="flex">
+          <div
+            class="flex border border-primary rounded-sm p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer rounded-l-sm"
+          >
+            <EyeIcon class="w-4 mr-1" />
+            <span class="">Rastrear</span>
+          </div>
+          <div
+            class="flex border border-primary rounded-sm p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer rounded-r-sm"
+          >
+            <EyeOffIcon class="w-4 mr-1" />
+            <span class="">Ignorar</span>
+          </div>
         </div>
         <a href="#" class="underline text-center">Decidir depois</a>
       </div>
@@ -40,12 +48,13 @@
 
 <script>
 import TimeFrame from "./TimeFrame"
-import { EyeOffIcon } from "@heroicons/vue/outline"
+import { EyeOffIcon, EyeIcon } from "@heroicons/vue/outline"
 
 export default {
   components: {
     TimeFrame,
     EyeOffIcon,
+    EyeIcon,
   },
   props: {
     isTracked: { type: Boolean, default: () => false },

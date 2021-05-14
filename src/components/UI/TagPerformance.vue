@@ -6,7 +6,7 @@
     </TimeFrame>
     <div class="bar-wrapper my-4 flex ">
       <div
-        class="tag-bar rounded-full bg-black mt-auto"
+        class="tag-bar rounded-full bg-primary-dark mt-auto"
         :style="{ 'max-height': barSize.toFixed(2) + '%' }"
       />
     </div>
@@ -20,6 +20,7 @@
 import TimeFrame from "./TimeFrame"
 import TagComponent from "./Tag"
 import moment from "moment"
+import "moment-duration-format"
 import "moment/locale/pt-br"
 
 export default {
@@ -34,7 +35,12 @@ export default {
   computed: {
     // moment,
     formatedTimeFrame() {
-      return moment(this.tag.activity).fromNow(true)
+      let activityInMinutes =
+        moment(this.tag.activity).diff(moment(), "minutes") * -1
+      return moment
+        .duration(activityInMinutes, "minutes")
+        .format("h [hrs] m [min]")
+      // return moment(this.tag.activity).fromNow(true)
     },
   },
 }

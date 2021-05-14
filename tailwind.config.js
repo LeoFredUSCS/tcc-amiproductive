@@ -25,7 +25,17 @@ module.exports = {
       blue: colors.blue,
       indigo: colors.indigo,
       purple: colors.violet,
-      pink: colors.pink
+      pink: colors.pink,
+      primary: {
+        light: '#47b5ed',
+        DEFAULT: '#36187d',
+        dark: '#190b3b'
+      },
+      accent: {
+        light: '#4c28a0',
+        DEFAULT: '#ea2396',
+        dark: '#c7137b '
+      }
     },
     spacing: {
       px: "1px",
@@ -250,7 +260,7 @@ module.exports = {
         "-apple-system",
         "BlinkMacSystemFont",
         '"Segoe UI"',
-        "Roboto Condensed",
+        "Roboto",
         '"Helvetica Neue"',
         "Arial",
         '"Noto Sans"',
@@ -892,7 +902,7 @@ module.exports = {
     ],
     borderRadius: ["responsive"],
     borderStyle: ["responsive"],
-    borderWidth: ["responsive"],
+    borderWidth: ["hover", "responsive"],
     boxDecorationBreak: ["responsive"],
     boxShadow: ["responsive", "group-hover", "focus-within", "hover", "focus"],
     boxSizing: ["responsive"],

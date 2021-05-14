@@ -16,11 +16,15 @@
   "dependencies": {
     "@electron/remote": "^1.1.0",
     "@heroicons/vue": "^1.0.1",
+    "chart.js": "^3.2.1",
     "core-js": "^3.6.5",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
+    "moment-duration-format": "^2.3.2",
     "vue": "^3.0.0",
+    "vue-chartjs": "^3.5.1",
     "vue-router": "^4.0.0-0",
+    "vue3-chart-v2": "^0.8.2",
     "vuex": "^4.0.0-0",
     "vuex-map-fields": "^1.4.1"
   },

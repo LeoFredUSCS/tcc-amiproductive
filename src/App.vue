@@ -9,9 +9,9 @@ body,
   color: $primary;
   box-sizing: border-box;
   height: 100%;
-  font-family: "Roboto Condensed", Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Roboto Condensed", Roboto, Avenir, Helvetica, Arial, sans-serif;
   overflow-x: hidden;
-  background: #f2f3f7;
+  background: $bg-primary;
   max-width: 100%;
 }
 
