@@ -1,46 +1,55 @@
-import { getField, updateField } from "vuex-map-fields";
+import { getField, updateField } from "vuex-map-fields"
+import moment from 'moment'
+import 'moment/locale/pt-br'
 
 const state = () => ({
   tags: [
     {
       tagName: "Jogos",
-      totalTime: "1h15 min"
+      // activity: "1h15 min"
+      activity: moment(moment().locale('pt-br')).subtract(75, 'minutes').toDate()
     },
     {
       tagName: "Internet",
-      totalTime: "38 min"
+      // activity: "38 min"
+      activity: moment(moment().locale('pt-br')).subtract(38, 'minutes').toDate()
     },
     {
       tagName: "Navegador",
-      totalTime: "35 min"
+      // activity: "35 min"
+      activity: moment(moment().locale('pt-br')).subtract(35, 'minutes').toDate()
     },
     {
       tagName: "Mídia",
-      totalTime: "46 min"
+      // activity: "46 min"
+      activity: moment(moment().locale('pt-br')).subtract(46, 'minutes').toDate()
     },
     {
       tagName: "Documentos",
-      totalTime: "33 min"
+      // activity: "33 min"
+      activity: moment(moment().locale('pt-br')).subtract(33, 'minutes').toDate()
     },
     {
       tagName: "Trabalho",
-      totalTime: "1h35 min"
+      // activity: "1h35 min"
+      activity: moment(moment().locale('pt-br')).subtract(95, 'minutes').toDate()
     },
     {
       tagName: "Notícias",
-      totalTime: "10 min"
+      // activity: "10 min"
+      activity: moment(moment().locale('pt-br')).subtract(10, 'minutes').toDate()
     }
   ]
-});
+})
 
 // getters
-const getters = { getField };
+const getters = { getField }
 
 // mutations
-const mutations = { updateField };
+const mutations = { updateField }
 
 // actions
-const actions = {};
+const actions = {}
 
 export default {
   namespaced: true,
@@ -48,4 +57,4 @@ export default {
   getters,
   actions,
   mutations
-};
+}

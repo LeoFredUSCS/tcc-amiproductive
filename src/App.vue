@@ -6,10 +6,13 @@
 html,
 body,
 #app {
+  color: $primary;
   box-sizing: border-box;
   height: 100%;
-  font-family: Roboto, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Roboto Condensed", Avenir, Helvetica, Arial, sans-serif;
   overflow-x: hidden;
+  background: #f2f3f7;
+  max-width: 100%;
 }
 
 #app {

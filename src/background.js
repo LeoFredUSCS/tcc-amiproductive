@@ -1,4 +1,4 @@
-"use strict";
+"use strict"
 
 import {
   app,
@@ -7,26 +7,28 @@ import {
   nativeImage,
   Menu,
   Tray
-} from "electron";
+} from "electron"
 
-import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
-import installExtension from "electron-devtools-installer";
-const isDevelopment = process.env.NODE_ENV !== "production";
-require("@electron/remote/main").initialize();
+import { createProtocol } from "vue-cli-plugin-electron-builder/lib"
+import installExtension from "electron-devtools-installer"
+const isDevelopment = process.env.NODE_ENV !== "production"
+require("@electron/remote/main").initialize()
 
-const { title, version } = require("../package.json");
-app.setName(`${title} - ${version}`);
-let tray = null;
-let mainWindow = null;
+const { title, version } = require("../package.json")
+app.setName(`${title} - ${version}`)
+let tray = null
+let mainWindow = null
 
 protocol.registerSchemesAsPrivileged([
   { scheme: "app", privileges: { secure: true, standard: true } }
-]);
+])
 
 async function createWindow() {
   mainWindow = new BrowserWindow({
-    minWidth: 1152,
-    minHeight: 600,
+    minWidth: 1000,
+    maxWidth: 1300,
+    minHeight: 800,
+    maxHeight: 1200,
     // frame: false,
     show: false,
     movable: true,
@@ -34,37 +36,37 @@ async function createWindow() {
     webPreferences: {
       contextIsolation: true
     }
-  });
+  })
 
   mainWindow.on("minimize", e => {
-    e.preventDefault();
-    mainWindow.hide();
-  });
+    e.preventDefault()
+    mainWindow.hide()
+  })
 
   mainWindow.webContents.on("did-finish-load", () => {
-    mainWindow.setTitle(app.name);
-    mainWindow.show();
-  });
+    mainWindow.setTitle(app.name)
+    mainWindow.show()
+  })
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
-    await mainWindow.loadURL(process.env.WEBPACK_DEV_SERVER_URL);
-    if (!process.env.IS_TEST) mainWindow.webContents.openDevTools();
+    await mainWindow.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
+    if (!process.env.IS_TEST) mainWindow.webContents.openDevTools()
   } else {
-    createProtocol("app");
-    mainWindow.loadURL("app://./index.html");
+    createProtocol("app")
+    mainWindow.loadURL("app://./index.html")
   }
 }
 
 // Quit when all windows are closed.
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
-    app.quit();
+    app.quit()
   }
-});
+})
 
 app.on("activate", () => {
-  if (BrowserWindow.getAllWindows().length === 0) createWindow();
-});
+  if (BrowserWindow.getAllWindows().length === 0) createWindow()
+})
 
 app.on("ready", async () => {
   if (isDevelopment && !process.env.IS_TEST) {
@@ -73,41 +75,41 @@ app.on("ready", async () => {
       await installExtension({
         id: "ljjemllljcmogpfapbkkighbhhppjdbg",
         electron: ">=1.2.1"
-      });
+      })
     } catch (e) {
-      console.error("Vue Devtools failed to install:", e.toString());
+      console.error("Vue Devtools failed to install:", e.toString())
     }
   }
-  tray = new Tray(nativeImage.createEmpty());
+  tray = new Tray(nativeImage.createEmpty())
   const contextMenu = Menu.buildFromTemplate([
     {
       label: "Painel",
       click: () => {
-        mainWindow.show();
+        mainWindow.show()
       }
     },
     { label: "Sair", role: "quit" }
-  ]);
-  tray.setToolTip(app.name);
-  tray.setContextMenu(contextMenu);
+  ])
+  tray.setToolTip(app.name)
+  tray.setContextMenu(contextMenu)
   tray.on("click", () => {
-    mainWindow.show();
-  });
+    mainWindow.show()
+  })
 
-  await createWindow();
-});
+  await createWindow()
+})
 
 // Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {
   if (process.platform === "win32") {
     process.on("message", data => {
       if (data === "graceful-exit") {
-        app.quit();
+        app.quit()
       }
-    });
+    })
   } else {
     process.on("SIGTERM", () => {
-      app.quit();
-    });
+      app.quit()
+    })
   }
 }

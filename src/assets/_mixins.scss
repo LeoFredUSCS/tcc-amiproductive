@@ -1,0 +1,20 @@
+@mixin shadow {
+  box-shadow: 5px 10px 20px #d2dce9, -7px -7px 15px #ffffff;
+}
+
+@mixin scroll-bar($width) {
+  &::-webkit-scrollbar {
+    width: $width;
+    position: absolute;
+    top: 30px;
+  }
+  &::-webkit-scrollbar-button {
+    height: 25px;
+    pointer-events: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+}

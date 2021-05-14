@@ -1,24 +1,35 @@
 <template>
-  <Section>
+  <Section class="edit-app-container h-auto overflow-y-auto">
     <template v-slot:title>
-      <h1>Edite / Classifique seus apps</h1>
+      <h2>Edite / Classifique seus apps</h2>
     </template>
     <template v-slot:content>
-      <div class="flex justify-around">
-        Apps
+      <div class="flex flex-col">
+        <NewTagForm class="my-5" />
+        <ul class="mt-10">
+          <AppBlock :isTracked="true" v-for="(i, j) in 8" :key="j" />
+        </ul>
       </div>
     </template>
   </Section>
 </template>
 
 <script>
-import Section from "@/components/UI/Section";
+import Section from "@/components/UI/Section"
+import NewTagForm from "@/components/UI/NewTagForm"
+import AppBlock from "@/components/UI/AppBlock"
 
 export default {
   components: {
-    Section
-  }
-};
+    Section,
+    NewTagForm,
+    AppBlock,
+  },
+}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.edit-app-container {
+  @include scroll-bar(5px);
+}
+</style>

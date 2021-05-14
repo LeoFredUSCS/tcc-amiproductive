@@ -1,5 +1,5 @@
 <template>
-  <div class="px-8 py-6 bg-white">
+  <div class="my-5">
     <div class="w-2/4 mx-auto">
       <div>
         <div class="block">
@@ -10,7 +10,7 @@
             >
               <router-link
                 to="/"
-                class="whitespace-nowrap py-4 w-2/4 border-b-2 font-medium text-sm"
+                class="whitespace-nowrap py-4 w-2/4 border-b-2 font-medium text-lg"
                 :class="activeClass[$route.path === '/' ? 'active' : 'default']"
               >
                 Resumo
@@ -18,7 +18,7 @@
 
               <router-link
                 to="/tracking"
-                class="whitespace-nowrap py-4 w-2/4 border-b-2 font-medium text-sm"
+                class="whitespace-nowrap py-4 w-2/4 border-b-2 font-medium text-lg"
                 :class="
                   activeClass[
                     $route.path === '/tracking' ? 'active' : 'default'
@@ -40,20 +40,20 @@
 export default {
   data() {
     return {
-      active: "/"
-    };
+      active: "/",
+    }
   },
   computed: {
     activeClass() {
       return {
         active: "border-black text-black font-bold",
         default:
-          "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-      };
-    }
+          "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300",
+      }
+    },
   },
-  methods: {}
-};
+  methods: {},
+}
 </script>
 
 <style lang="scss" scoped></style>

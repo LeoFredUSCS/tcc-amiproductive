@@ -2,13 +2,13 @@ import {
   createRouter,
   createWebHistory,
   createWebHashHistory
-} from "vue-router";
-import Home from "../views/Home.vue";
+} from "vue-router"
+import Home from "../views/Home.vue"
 
 const routes = [
   {
     path: "/",
-    name: "Resume",
+    name: "Summary",
     component: Home,
     meta: { title: "Resumo" }
   },
@@ -23,13 +23,13 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Tracking.vue")
   }
-];
+]
 
 const router = createRouter({
   history: process.env.IS_ELECTRON
     ? createWebHashHistory()
     : createWebHistory(process.env.BASE_URL),
   routes
-});
+})
 
-export default router;
+export default router

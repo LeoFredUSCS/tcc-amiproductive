@@ -1,7 +1,7 @@
 <template>
   <Section>
     <template v-slot:title>
-      <h1>Resumo do dia</h1>
+      <h2>Resumo do dia</h2>
     </template>
     <template v-slot:content>
       <div class="flex justify-around">
@@ -14,19 +14,19 @@
 </template>
 
 <script>
-import Section from "@/components/UI/Section";
-import TotalActivityTime from "@/components/sections/dailyresume/TotalActivityTime";
-import MostActiveApps from "@/components/sections/dailyresume/MostActiveApps";
-import MostActiveTags from "@/components/sections/dailyresume/MostActiveTags";
+import Section from "@/components/UI/Section"
+import TotalActivityTime from "@/components/sections/dailysummary/TotalActivityTime"
+import MostActiveApps from "@/components/sections/dailysummary/MostActiveApps"
+import MostActiveTags from "@/components/sections/dailysummary/MostActiveTags"
 
 export default {
   components: {
     Section,
     TotalActivityTime,
     MostActiveApps,
-    MostActiveTags
-  }
-};
+    MostActiveTags,
+  },
+}
 </script>
 
 <style lang="scss" scoped></style>
