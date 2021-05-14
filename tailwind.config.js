@@ -1,4 +1,4 @@
-const colors = require("tailwindcss/colors");
+const colors = require("tailwindcss/colors")
 
 module.exports = {
   purge: ["./index.html", "./src/**/*.{vue,js}"],
@@ -250,7 +250,7 @@ module.exports = {
         "-apple-system",
         "BlinkMacSystemFont",
         '"Segoe UI"',
-        "Roboto",
+        "Roboto Condensed",
         '"Helvetica Neue"',
         "Arial",
         '"Noto Sans"',
@@ -1025,4 +1025,4 @@ module.exports = {
     zIndex: ["responsive", "focus-within", "focus"]
   },
   plugins: []
-};
+}
