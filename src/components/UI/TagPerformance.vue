@@ -1,15 +1,12 @@
 <template>
-  <div class="flex flex-col items-center">
-    <TimeFrame>
-      {{ formatedTimeFrame }}
-      <!-- {{ moment(tag.activity) }} -->
-    </TimeFrame>
-    <div class="bar-wrapper my-4 flex ">
-      <div
-        class="tag-bar rounded-full bg-primary-dark mt-auto"
-        :style="{ 'max-height': barSize.toFixed(2) + '%' }"
-      />
-    </div>
+  <div class="flex flex-col items-center justify-end">
+    <TimeSpan>
+      {{ formatedTimeSpan }}
+    </TimeSpan>
+    <div
+      class="percentage-bar my-4 flex rounded-full bg-primary-dark"
+      :style="{ 'max-height': barSize.toFixed(2) + '%' }"
+    />
     <TagComponent>
       {{ tag.tagName }}
     </TagComponent>
@@ -17,7 +14,7 @@
 </template>
 
 <script>
-import TimeFrame from "./TimeFrame"
+import TimeSpan from "./TimeSpan"
 import TagComponent from "./Tag"
 import moment from "moment"
 import "moment-duration-format"
@@ -29,12 +26,12 @@ export default {
     barSize: { type: Number, default: () => null },
   },
   components: {
-    TimeFrame,
+    TimeSpan,
     TagComponent,
   },
   computed: {
     // moment,
-    formatedTimeFrame() {
+    formatedTimeSpan() {
       let activityInMinutes =
         moment(this.tag.activity).diff(moment(), "minutes") * -1
       return moment
@@ -47,11 +44,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.bar-wrapper {
+.percentage-bar {
   height: 200px;
-  .tag-bar {
-    height: 100%;
-    width: 15px;
-  }
+  width: 15px;
 }
 </style>

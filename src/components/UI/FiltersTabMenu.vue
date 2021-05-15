@@ -5,7 +5,6 @@
     </h3>
     <nav class="-mb-px flex justify-between" aria-label="Tabs">
       <div
-        id="name"
         class="w-full border-transparent text-center text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium cursor-pointer"
         :class="{ selected: selectedFilter === 'name' }"
         @click="applyFilter('name')"
@@ -14,7 +13,6 @@
       </div>
       <!-- Current: "border-indigo-500 text-indigo-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
       <div
-        id="activity"
         class="w-full border-transparent text-center text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium cursor-pointer"
         :class="{ selected: selectedFilter === 'activity' }"
         @click="applyFilter('activity')"
@@ -22,7 +20,6 @@
         <span class="label">Atividade</span>
       </div>
       <div
-        id="status"
         class="w-full border-transparent text-center text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium cursor-pointer"
         :class="{ selected: selectedFilter === 'status' }"
         @click="applyFilter('status')"

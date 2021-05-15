@@ -9,9 +9,9 @@
     <div class="app-edit flex flex-col flex-grow">
       <div class="app-edit-info flex justify-between">
         <span class="font-bold">{{ name }}</span>
-        <TimeFrame>
-          {{ activityTimeFrame }}
-        </TimeFrame>
+        <TimeSpan>
+          {{ activityTimeSpan }}
+        </TimeSpan>
       </div>
       <div class="app-edit-input">
         <input
@@ -47,12 +47,12 @@
 </template>
 
 <script>
-import TimeFrame from "./TimeFrame"
+import TimeSpan from "./TimeSpan"
 import { EyeOffIcon, EyeIcon } from "@heroicons/vue/outline"
 
 export default {
   components: {
-    TimeFrame,
+    TimeSpan,
     EyeOffIcon,
     EyeIcon,
   },
@@ -63,7 +63,7 @@ export default {
     return {
       icon: "",
       name: "Aplicativo",
-      activityTimeFrame: "1h 25 min",
+      activityTimeSpan: "1h 25 min",
       belongsTo: [],
     }
   },

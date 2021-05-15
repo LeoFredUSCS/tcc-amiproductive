@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex items-center time-frame-wrapper -center text-gray-400 text-sm"
-  >
+  <div class="flex items-center time-frame-wrapper text-gray-400 text-sm">
     <ClockIcon class="w-4 h-4 mr-1" />
     <span class="font-semibold">
       <slot></slot>

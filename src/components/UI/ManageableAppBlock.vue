@@ -15,9 +15,9 @@
         <span class="font-bold">{{ app.name }}</span>
       </div>
       <div class="app-edit-input">
-        <TimeFrame>
+        <TimeSpan>
           {{ app.activityTimeFrame }}
-        </TimeFrame>
+        </TimeSpan>
       </div>
     </div>
     <div
@@ -65,12 +65,12 @@
 </template>
 
 <script>
-import TimeFrame from "./TimeFrame"
+import TimeSpan from "./TimeSpan"
 import { EyeOffIcon, EyeIcon, DotsVerticalIcon } from "@heroicons/vue/outline"
 
 export default {
   components: {
-    TimeFrame,
+    TimeSpan,
     EyeOffIcon,
     EyeIcon,
     DotsVerticalIcon,

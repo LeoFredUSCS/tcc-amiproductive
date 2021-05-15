@@ -5,7 +5,7 @@
     </template>
     <template v-slot:content>
       <div class="flex flex-col justify-around">
-        <div class="text-center mb-8">Períodos</div>
+        <!-- <div class="text-center mb-8">Períodos</div> -->
 
         <div class="days-distribution flex flex-col">
           <div
@@ -13,7 +13,7 @@
             v-for="(day, i) in daysOfTheWeek"
             :key="i"
           >
-            <span class="self-end text-sm col-end-2 font-bold mr-3">
+            <span class="self-end col-end-2 font-bold mr-3">
               {{ day }}
             </span>
             <div class="day-share flex col-start-2 col-end-8">
@@ -68,7 +68,7 @@ export default {
     width: 100%;
     margin: 0 1px;
     .bar {
-      height: 7px;
+      height: 10px;
       width: 100%;
     }
     &.first-tag {

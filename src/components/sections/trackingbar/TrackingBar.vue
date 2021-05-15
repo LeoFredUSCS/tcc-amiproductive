@@ -4,7 +4,7 @@
       <h2>Defina o que será rastreado</h2>
     </template>
     <template v-slot:content>
-      <InnerTabMenu class="my-5" />
+      <FiltersTabMenu class="my-5" />
       <div class="flex flex-col">
         <ul class="mt-5">
           <ManageableAppBlock :isTracked="true" v-for="(i, j) in 8" :key="j" />
@@ -17,13 +17,13 @@
 <script>
 import Section from "@/components/UI/Section"
 import ManageableAppBlock from "@/components/UI/ManageableAppBlock"
-import InnerTabMenu from "@/components/UI/InnerTabMenu"
+import FiltersTabMenu from "@/components/UI/FiltersTabMenu"
 
 export default {
   components: {
     Section,
     ManageableAppBlock,
-    InnerTabMenu,
+    FiltersTabMenu,
   },
 }
 </script>

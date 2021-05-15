@@ -3,7 +3,7 @@
     <div class="w-2/4 mx-auto">
       <div>
         <div class="block">
-          <div class="border-b border-gray-200">
+          <div class="border-b border-gray-300">
             <nav
               class="-mb-px flex justify-center items-center text-center"
               aria-label="Tabs"
