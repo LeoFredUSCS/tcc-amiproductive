@@ -8,11 +8,7 @@
         <!-- <div class="text-center mb-8">Períodos</div> -->
 
         <div class="days-distribution flex flex-col">
-          <div
-            class="day grid grid-cols-7 auto-cols-auto my-3"
-            v-for="(day, i) in daysOfTheWeek"
-            :key="i"
-          >
+          <div class="day grid grid-cols-7 auto-cols-auto my-3" v-for="(day, i) in daysOfTheWeek" :key="i">
             <span class="self-end col-end-2 font-bold mr-3">
               {{ day }}
             </span>
@@ -38,27 +34,19 @@
 </template>
 
 <script>
-import Section from "@/components/UI/Section"
-import Tag from "@/components/UI/Tag"
+import Section from '@/components/UI/Section'
+import Tag from '@/components/UI/Tag'
 
 export default {
   components: {
     Section,
-    Tag,
+    Tag
   },
   data() {
     return {
-      daysOfTheWeek: [
-        "Segunda-Feira",
-        "Terça-Feira",
-        "Quarta-Feira",
-        "Quinta-Feira",
-        "Sexta-Feira",
-        "Sábado",
-        "Domingo",
-      ],
+      daysOfTheWeek: ['Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado', 'Domingo']
     }
-  },
+  }
 }
 </script>
 

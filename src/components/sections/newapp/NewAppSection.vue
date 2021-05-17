@@ -12,14 +12,14 @@
 </template>
 
 <script>
-import Section from "@/components/UI/Section"
-import AppBlock from "@/components/UI/AppBlock"
+import Section from '@/components/UI/Section'
+import AppBlock from '@/components/UI/AppBlock'
 
 export default {
   components: {
     Section,
-    AppBlock,
-  },
+    AppBlock
+  }
 }
 </script>
 

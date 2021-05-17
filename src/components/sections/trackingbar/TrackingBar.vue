@@ -7,11 +7,7 @@
       <FiltersTabMenu class="my-5" />
       <div class="flex flex-col">
         <ul class="mt-5">
-          <ManageableAppBlock
-            v-for="(process, i) in processes"
-            :app="process"
-            :key="i"
-          />
+          <ManageableAppBlock v-for="(process, i) in processes" :app="process" :key="i" />
         </ul>
       </div>
     </template>
@@ -19,21 +15,21 @@
 </template>
 
 <script>
-import Section from "@/components/UI/Section"
-import ManageableAppBlock from "@/components/UI/ManageableAppBlock"
-import FiltersTabMenu from "@/components/UI/FiltersTabMenu"
-import { mapFields } from "vuex-map-fields"
+import Section from '@/components/UI/Section'
+import ManageableAppBlock from '@/components/UI/ManageableAppBlock'
+import FiltersTabMenu from '@/components/UI/FiltersTabMenu'
+import { mapFields } from 'vuex-map-fields'
 
 export default {
   components: {
     Section,
     ManageableAppBlock,
-    FiltersTabMenu,
+    FiltersTabMenu
   },
   computed: {
-    ...mapFields("processes", ["processes"]),
+    ...mapFields('processes', ['processes'])
   },
-  methods: {},
+  methods: {}
 }
 </script>
 

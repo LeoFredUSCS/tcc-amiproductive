@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import { ClockIcon } from "@heroicons/vue/outline"
+import { ClockIcon } from '@heroicons/vue/outline'
 export default {
-  components: { ClockIcon },
+  components: { ClockIcon }
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <h3 class="text-lg leading-6 font-medium font-bold">
+    <h3 class="text-lg leading-6 font-bold">
       Adicionar nova categoria
     </h3>
 
@@ -16,7 +16,7 @@
       </div>
       <button
         type="submit"
-        class="w-full font-bold inline-flex items-center justify-center p-2 px-3 h-full border border-primary hover:bg-primary-dark trandition shadow-sm font-medium rounded-md rounded-l-none text-white bg-primary-dark sm:mt-0 sm:w-auto"
+        class="w-full inline-flex items-center justify-center p-2 px-3 h-full border border-primary hover:bg-primary-dark trandition shadow-sm font-medium rounded-md rounded-l-none text-white bg-primary-dark sm:mt-0 sm:w-auto"
       >
         Adicionar
       </button>
@@ -28,6 +28,6 @@
 export default {
   data: () => {
     return {}
-  },
+  }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="border-b border-gray-200 px-3">
-    <h3 class="text-lg text-center font-medium font-bold mb-2">
+    <h3 class="text-lg text-center font-bold mb-2">
       Ordenar os aplicativos
     </h3>
     <nav class="-mb-px flex justify-between" aria-label="Tabs">
@@ -33,13 +33,13 @@
 <script>
 export default {
   data: () => ({
-    selectedFilter: "name",
+    selectedFilter: 'name'
   }),
   methods: {
     applyFilter(filter) {
       this.selectedFilter = filter
-    },
-  },
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>

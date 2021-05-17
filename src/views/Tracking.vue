@@ -1,8 +1,6 @@
 <template>
   <div class="w-full h-screen flex auto-rows-min gap-2 max-h-screen">
-    <div
-      class="main-content overflow-y-auto flex flex-col gap-6 flex-grow px-4 py-4"
-    >
+    <div class="main-content overflow-y-auto flex flex-col gap-6 flex-grow px-4 py-4">
       <TabMenu />
       <MemoryConsumption />
       <ProcessingConsumption />
@@ -14,19 +12,19 @@
 </template>
 
 <script>
-import TabMenu from "@/components/UI/TabMenu"
-import TrackingBar from "@/components/sections/trackingbar/TrackingBar"
-import MemoryConsumption from "@/components/sections/memoryconsumption/MemoryConsumption"
-import ProcessingConsumption from "@/components/sections/processingconsumption/ProcessingConsumption"
+import TabMenu from '@/components/UI/TabMenu'
+import TrackingBar from '@/components/sections/trackingbar/TrackingBar'
+import MemoryConsumption from '@/components/sections/memoryconsumption/MemoryConsumption'
+import ProcessingConsumption from '@/components/sections/processingconsumption/ProcessingConsumption'
 
 export default {
-  name: "About",
+  name: 'About',
   components: {
     TabMenu,
     TrackingBar,
     MemoryConsumption,
-    ProcessingConsumption,
-  },
+    ProcessingConsumption
+  }
 }
 </script>
 <style lang="scss" scoped>

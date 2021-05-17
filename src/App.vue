@@ -9,7 +9,7 @@ body,
   color: $primary;
   box-sizing: border-box;
   height: 100%;
-  font-family: "Roboto Condensed", Roboto, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto Condensed', Roboto, Avenir, Helvetica, Arial, sans-serif;
   overflow-x: hidden;
   background: $bg-primary;
   max-width: 100%;

@@ -14,18 +14,18 @@
 </template>
 
 <script>
-import Section from "@/components/UI/Section"
-import TotalActivityTime from "@/components/sections/dailysummary/TotalActivityTime"
-import MostActiveApps from "@/components/sections/dailysummary/MostActiveApps"
-import MostActiveTags from "@/components/sections/dailysummary/MostActiveTags"
+import Section from '@/components/UI/Section'
+import TotalActivityTime from '@/components/sections/dailysummary/TotalActivityTime'
+import MostActiveApps from '@/components/sections/dailysummary/MostActiveApps'
+import MostActiveTags from '@/components/sections/dailysummary/MostActiveTags'
 
 export default {
   components: {
     Section,
     TotalActivityTime,
     MostActiveApps,
-    MostActiveTags,
-  },
+    MostActiveTags
+  }
 }
 </script>
 

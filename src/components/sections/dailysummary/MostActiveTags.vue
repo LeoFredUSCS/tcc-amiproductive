@@ -10,22 +10,22 @@
 </template>
 
 <script>
-import { mapFields } from "vuex-map-fields"
-import Tag from "@/components/UI/Tag"
+import { mapFields } from 'vuex-map-fields'
+import Tag from '@/components/UI/Tag'
 
 export default {
   components: {
-    Tag,
+    Tag
   },
   data() {
     return {}
   },
   computed: {
-    ...mapFields("tags", ["tags"]),
+    ...mapFields('tags', ['tags']),
     mostActiveTags() {
       return this.tags.slice(0, 2)
-    },
-  },
+    }
+  }
 }
 </script>
 

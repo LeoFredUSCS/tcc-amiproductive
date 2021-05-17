@@ -1,0 +1,16 @@
+{
+  "eslint.validate": ["vue", "javascript", "html"],
+  // "eslint.autoFixOnSave": true,
+  "editor.formatOnSave": true,
+  "vetur.validation.template": true,
+  "prettier.printWidth": 80,
+  "prettier.endOfLine": "lf",
+  "files.eol": "\n",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.prettier": true
+  },
+  "vetur.completion.autoImport": false,
+  "[vue]": {
+    "editor.foldingStrategy": "indentation"
+  }
+}

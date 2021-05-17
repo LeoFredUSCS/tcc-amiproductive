@@ -15,16 +15,16 @@
 </template>
 
 <script>
-import Section from "@/components/UI/Section"
-import NewTagForm from "@/components/UI/NewTagForm"
-import AppBlock from "@/components/UI/AppBlock"
+import Section from '@/components/UI/Section'
+import NewTagForm from '@/components/UI/NewTagForm'
+import AppBlock from '@/components/UI/AppBlock'
 
 export default {
   components: {
     Section,
     NewTagForm,
-    AppBlock,
-  },
+    AppBlock
+  }
 }
 </script>
 

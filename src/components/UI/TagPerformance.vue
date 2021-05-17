@@ -3,10 +3,7 @@
     <TimeSpan>
       {{ formatedTimeSpan(tag.activity) }}
     </TimeSpan>
-    <div
-      class="percentage-bar my-4 flex rounded-full bg-primary-dark"
-      :style="{ 'max-height': barSize.toFixed(2) + '%' }"
-    />
+    <div class="percentage-bar my-4 flex rounded-full bg-primary-dark" :style="{ 'max-height': barSize.toFixed(2) + '%' }" />
     <TagComponent>
       {{ tag.tagName }}
     </TagComponent>
@@ -14,22 +11,22 @@
 </template>
 
 <script>
-import { formatedTimeSpan } from "../../plugins/utils"
-import TimeSpan from "./TimeSpan"
-import TagComponent from "./Tag"
+import { formatedTimeSpan } from '../../plugins/utils'
+import TimeSpan from './TimeSpan'
+import TagComponent from './Tag'
 
 export default {
   props: {
     tag: { type: Object, default: () => null },
-    barSize: { type: Number, default: () => null },
+    barSize: { type: Number, default: () => null }
   },
   components: {
     TimeSpan,
-    TagComponent,
+    TagComponent
   },
   methods: {
-    formatedTimeSpan,
-  },
+    formatedTimeSpan
+  }
 }
 </script>
 
