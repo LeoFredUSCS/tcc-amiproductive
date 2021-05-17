@@ -18,7 +18,7 @@ import { XIcon } from "@heroicons/vue/outline"
 export default {
   props: {
     dismissable: { type: Boolean, default: () => false },
-    altColor: { type: Text, default: () => null },
+    altColor: { type: String, default: () => "primary-dark" },
   },
   components: {
     XIcon,

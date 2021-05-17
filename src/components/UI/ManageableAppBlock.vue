@@ -1,10 +1,10 @@
 <template>
-  <li class="flex items-center app mb-6">
+  <li class="flex items-center app mb-6" :data-is-tracked="isTracked">
     <div
       class="status-indicator h-12 w-1 mr-2 rounded-full transition"
       :class="{
-        'bg-accent': isTracked && !undefinedState,
-        'bg-gray-300': !isTracked && !undefinedState,
+        'bg-accent': isTracked,
+        'bg-gray-300': !isTracked,
       }"
     />
     <div class="icon app-icon w-10 h-10 rounded-full overflow-hidden mr-3">
@@ -12,11 +12,11 @@
     </div>
     <div class="flex flex-col flex-grow">
       <div class="app-edit-info flex justify-between">
-        <span class="font-bold">{{ app.name }}</span>
+        <span class="font-bold">{{ appName }}</span>
       </div>
       <div class="app-edit-input">
         <TimeSpan>
-          {{ app.activityTimeFrame }}
+          {{ formatedTimeSpan(app.created_at) }}
         </TimeSpan>
       </div>
     </div>
@@ -24,14 +24,15 @@
       class="app-user-actions flex items-center justify-between mt-2 font-bold text-xs"
     >
       <div class="flex" v-if="!shouldExpand">
-        <EyeOffIcon class="w-5 h-5 mr-4" v-if="!isTracked && !undefinedState" />
-        <EyeIcon class="w-5 h-5 mr-4" v-if="isTracked && !undefinedState" />
+        <!-- <EyeOffIcon class="w-5 h-5 mr-4" v-if="!isTracked" /> -->
+        <EyeIcon class="w-5 h-5 mr-4" v-if="isTracked" />
+        <span class="text-gray-400 mr-2" v-if="!isTracked">Não Rastreado</span>
       </div>
       <div class="flex" v-if="shouldExpand">
         <div
           class="flex border border-primary rounded-l-sm p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer"
           :class="{
-            'bg-primary text-white font-bold': isTracked && !undefinedState,
+            'bg-primary text-white font-bold': isTracked,
             undefined: undefinedState,
           }"
           @click="defineAppState(true)"
@@ -42,7 +43,7 @@
         <div
           class="flex border border-primary rounded-r-sm p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer"
           :class="{
-            'bg-primary text-white font-bold': !isTracked && !undefinedState,
+            'bg-primary text-white font-bold': !isTracked,
           }"
           @click="defineAppState(false)"
         >
@@ -54,7 +55,7 @@
         class="app-management-menu w-6 h-6 border rounded-full border-gray-500 flex cursor-pointer  transition ml-1 transform hover:scale-110 hover:bg-gray-100"
         :class="{
           'rotate-90': shouldExpand,
-          'attention-grabber': undefinedState && !shouldExpand,
+          'attention-grabber': !shouldExpand,
         }"
         @click="shouldExpand = !shouldExpand"
       >
@@ -67,6 +68,9 @@
 <script>
 import TimeSpan from "./TimeSpan"
 import { EyeOffIcon, EyeIcon, DotsVerticalIcon } from "@heroicons/vue/outline"
+import { mapFields } from "vuex-map-fields"
+import { mapMutations } from "vuex"
+import { formatedTimeSpan } from "../../plugins/utils"
 
 export default {
   components: {
@@ -76,30 +80,46 @@ export default {
     DotsVerticalIcon,
   },
   props: {
-    // isTracked: { type: Boolean, default: () => false },
+    app: {
+      type: Object,
+      default: () => {},
+    },
   },
   data: () => {
     return {
-      app: {
-        icon: "",
-        name: "Aplicativo",
-        activityTimeFrame: "1h 25 min",
-        belongsTo: [],
-      },
       shouldExpand: false,
-      isTracked: false,
       undefinedState: true,
     }
   },
+  computed: {
+    ...mapFields("processes", ["processes"]),
+    isTracked() {
+      return this.app.status === "tracking"
+    },
+    appName() {
+      let name = this.app["name"].split(".")[0]
+      let capital = name.charAt(0).toUpperCase()
+      return capital + name.substring(1)
+    },
+  },
   methods: {
-    defineAppState(state) {
-      if (state === this.isTracked && !this.undefinedState) {
-        this.undefinedState = true
-      } else {
-        this.undefinedState = false
-      }
-      this.isTracked = state
+    formatedTimeSpan,
+    ...mapMutations({
+      updateStatusField: "processes/updateStatusField",
+    }),
+    updateProcessStatus(status) {
+      // let updatedProcess = this.app
+      // updatedProcess['status'] = status
+      this.updateStatusField(this.app, status)
+    },
+    defineAppState(status) {
+      this.isTracked = status
       this.shouldExpand = !this.shouldExpand
+      let updatedApp = {
+        process: this.appName.toLowerCase(),
+        status: status ? "tracking" : "ignored",
+      }
+      this.updateStatusField(updatedApp)
     },
   },
 }

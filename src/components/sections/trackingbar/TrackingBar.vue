@@ -7,7 +7,11 @@
       <FiltersTabMenu class="my-5" />
       <div class="flex flex-col">
         <ul class="mt-5">
-          <ManageableAppBlock :isTracked="true" v-for="(i, j) in 8" :key="j" />
+          <ManageableAppBlock
+            v-for="(process, i) in processes"
+            :app="process"
+            :key="i"
+          />
         </ul>
       </div>
     </template>
@@ -18,6 +22,7 @@
 import Section from "@/components/UI/Section"
 import ManageableAppBlock from "@/components/UI/ManageableAppBlock"
 import FiltersTabMenu from "@/components/UI/FiltersTabMenu"
+import { mapFields } from "vuex-map-fields"
 
 export default {
   components: {
@@ -25,6 +30,10 @@ export default {
     ManageableAppBlock,
     FiltersTabMenu,
   },
+  computed: {
+    ...mapFields("processes", ["processes"]),
+  },
+  methods: {},
 }
 </script>
 
