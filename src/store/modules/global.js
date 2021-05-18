@@ -1,8 +1,8 @@
-import { getField, updateField } from "vuex-map-fields"
+import { getField, updateField } from 'vuex-map-fields'
 
 function defaultState() {
   return {
-    'started_at': 'null'
+    started_at: null
   }
 }
 export const state = defaultState
