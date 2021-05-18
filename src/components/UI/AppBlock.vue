@@ -5,7 +5,7 @@
     </div>
     <div class="app-edit flex flex-col flex-grow">
       <div class="app-edit-info flex justify-between">
-        <span class="font-bold">{{ name }}</span>
+        <span class="font-bold">{{ appName }}</span>
         <TimeSpan>
           {{ activityTimeSpan }}
         </TimeSpan>
@@ -21,13 +21,13 @@
       </div>
       <div class="app-user-actions flex items-center justify-between mt-2 font-bold text-xs" v-if="!isTracked">
         <div class="flex">
-          <div class="flex border border-primary rounded-sm p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer rounded-l-sm">
-            <EyeIcon class="w-4 mr-1" />
-            <span class="">Rastrear</span>
-          </div>
           <div class="flex border border-primary rounded-sm p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer rounded-r-sm">
             <EyeOffIcon class="w-4 mr-1" />
             <span class="">Ignorar</span>
+          </div>
+          <div class="flex border border-primary rounded-sm p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer rounded-l-sm">
+            <EyeIcon class="w-4 mr-1" />
+            <span class="">Rastrear</span>
           </div>
         </div>
         <a href="#" class="underline text-center">Decidir depois</a>
@@ -47,7 +47,7 @@ export default {
     EyeIcon
   },
   props: {
-    isTracked: { type: Boolean, default: () => false }
+    app: { type: Object, default: () => {} }
   },
   data: () => {
     return {
@@ -55,6 +55,18 @@ export default {
       name: 'Aplicativo',
       activityTimeSpan: '1h 25 min',
       belongsTo: []
+    }
+  },
+  computed: {
+    isTracked() {
+      if (!this.app) return false
+      return this.app.status === 'tracking'
+    },
+    appName() {
+      if (!this.app) return 'aplicativo'
+      let name = this.app.name.split('.')[0]
+      let capital = name[0].toUpperCase()
+      return capital + name.substring(1)
     }
   }
 }

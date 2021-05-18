@@ -1,12 +1,39 @@
 <template>
-  <div class="flex flex-col w-1/4">
+  <div class="total-activity flex flex-col flex-grow">
     <div class="font-bold w-full mb-3">Atividade Total</div>
-    <div class="flex items-baseline text-2xl font-light"><span class="text-5xl ">5</span>h<span class="text-5xl ml-2">37</span>min</div>
+    <div class="flex items-baseline font-light">
+      <span :class="started === 'Carregando' ? 'text-3xl' : 'text-5xl'">{{ started }}</span>
+    </div>
   </div>
 </template>
 
 <script>
-export default {}
+import { mapFields } from 'vuex-map-fields'
+import { formatedTimeSpan } from '../../../plugins/utils'
+
+export default {
+  data() {
+    return {
+      started: 'Carregando'
+    }
+  },
+  created() {
+    setInterval(() => {
+      this.started = formatedTimeSpan(this.started_at)
+    }, 1000)
+  },
+
+  computed: {
+    ...mapFields('global', ['started_at'])
+  },
+  methods: {
+    formatedTimeSpan
+  }
+}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.total-activity {
+  min-width: 265px;
+}
+</style>

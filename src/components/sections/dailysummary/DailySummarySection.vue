@@ -4,10 +4,10 @@
       <h2>Resumo do dia</h2>
     </template>
     <template v-slot:content>
-      <div class="flex justify-around">
-        <TotalActivityTime></TotalActivityTime>
-        <MostActiveApps></MostActiveApps>
-        <MostActiveTags></MostActiveTags>
+      <div class="flex">
+        <TotalActivityTime />
+        <MostActiveApps />
+        <MostActiveTags />
       </div>
     </template>
   </Section>
@@ -25,7 +25,8 @@ export default {
     TotalActivityTime,
     MostActiveApps,
     MostActiveTags
-  }
+  },
+  computed: {}
 }
 </script>
 

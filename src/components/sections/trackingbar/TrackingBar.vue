@@ -7,7 +7,7 @@
       <FiltersTabMenu class="my-5" />
       <div class="flex flex-col">
         <ul class="mt-5">
-          <ManageableAppBlock v-for="(process, i) in processes" :app="process" :key="i" />
+          <ManageableAppBlock v-for="(process, i) in orderedProcessesList" :app="process" :key="i" />
         </ul>
       </div>
     </template>
@@ -19,6 +19,9 @@ import Section from '@/components/UI/Section'
 import ManageableAppBlock from '@/components/UI/ManageableAppBlock'
 import FiltersTabMenu from '@/components/UI/FiltersTabMenu'
 import { mapFields } from 'vuex-map-fields'
+import orderBy from 'lodash/orderBy'
+import mitt from 'mitt'
+window.mitt = window.mitt || new mitt()
 
 export default {
   components: {
@@ -26,8 +29,25 @@ export default {
     ManageableAppBlock,
     FiltersTabMenu
   },
+  data() {
+    return {
+      orderBy: 'status'
+    }
+  },
+  mounted() {
+    window.mitt.on('order-by', param => {
+      this.orderBy = param
+    })
+  },
   computed: {
-    ...mapFields('processes', ['processes'])
+    ...mapFields('processes', ['processes']),
+    orderedProcessesList() {
+      let processes = this.processes
+      let orderSide = this.orderBy === 'name' ? 'asc' : 'desc'
+      if (this.orderBy === 'status') orderBy(processes, e => e.status === 'tracking', [orderSide])
+
+      return orderBy(processes, [this.orderBy], [orderSide])
+    }
   },
   methods: {}
 }

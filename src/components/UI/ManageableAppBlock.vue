@@ -1,5 +1,5 @@
 <template>
-  <li class="flex items-center app mb-6" :data-is-tracked="isTracked">
+  <li class="flex items-center app mb-6">
     <div
       class="status-indicator h-12 w-1 mr-2 rounded-full transition"
       :class="{
@@ -28,6 +28,16 @@
       </div>
       <div class="flex" v-if="shouldExpand">
         <div
+          class="flex border border-primary rounded-r-sm p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer"
+          :class="{
+            'bg-primary text-white font-bold': !isTracked
+          }"
+          @click="defineAppState(false)"
+        >
+          <EyeOffIcon class="w-4 h-4 mr-1" />
+          <span class="text-xs">Ignorar</span>
+        </div>
+        <div
           class="flex border border-primary rounded-l-sm p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer"
           :class="{
             'bg-primary text-white font-bold': isTracked,
@@ -38,19 +48,9 @@
           <EyeIcon class="w-4 h-4 mr-1" />
           <span class="text-xs">Rastrerar</span>
         </div>
-        <div
-          class="flex border border-primary rounded-r-sm p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer"
-          :class="{
-            'bg-primary text-white font-bold': !isTracked
-          }"
-          @click="defineAppState(false)"
-        >
-          <EyeOffIcon class="w-4 h-4 mr-1" />
-          <span class="text-xs">Ignorar</span>
-        </div>
       </div>
       <div
-        class="app-management-menu w-6 h-6 border rounded-full border-gray-500 flex cursor-pointer  transition ml-1 transform hover:scale-110 hover:bg-gray-100"
+        class="app-management-menu w-6 h-6 border rounded-full border-gray-500 flex cursor-pointer transition ml-1 transform hover:scale-110 hover:bg-gray-100"
         :class="{
           'rotate-90': shouldExpand,
           'attention-grabber': !shouldExpand
@@ -105,16 +105,11 @@ export default {
     ...mapMutations({
       updateStatusField: 'processes/updateStatusField'
     }),
-    updateProcessStatus(status) {
-      // let updatedProcess = this.app
-      // updatedProcess['status'] = status
-      this.updateStatusField(this.app, status)
-    },
     defineAppState(status) {
       this.isTracked = status
       this.shouldExpand = !this.shouldExpand
       let updatedApp = {
-        process: this.appName.toLowerCase(),
+        process: this.appName.toLowerCase() + '.exe',
         status: status ? 'tracking' : 'ignored'
       }
       this.updateStatusField(updatedApp)

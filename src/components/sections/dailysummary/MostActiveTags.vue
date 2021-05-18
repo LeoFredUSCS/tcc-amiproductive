@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col w-1/4">
-    <div class="font-bold w-full mb-3">Categorias mais ativas</div>
+  <div class="flex flex-col flex-grow items-end">
+    <div class="font-bold w-full mb-3 text-right">Categorias mais ativas</div>
     <div class="flex flex-wrap">
       <Tag v-for="tag in mostActiveTags" :key="tag">
         {{ tag.tagName }}
@@ -12,6 +12,7 @@
 <script>
 import { mapFields } from 'vuex-map-fields'
 import Tag from '@/components/UI/Tag'
+import orderBy from 'lodash/orderBy'
 
 export default {
   components: {
@@ -23,7 +24,8 @@ export default {
   computed: {
     ...mapFields('tags', ['tags']),
     mostActiveTags() {
-      return this.tags.slice(0, 2)
+      let activeTags = orderBy(this.tags, ['activity'], ['asc'])
+      return activeTags.slice(0, 2)
     }
   }
 }

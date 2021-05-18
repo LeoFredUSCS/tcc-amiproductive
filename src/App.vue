@@ -1,7 +1,24 @@
 <template>
   <router-view />
 </template>
+<script>
+import { mapMutations } from "vuex"
+import { mapFields } from "vuex-map-fields"
 
+export default {
+  computed: {
+    ...mapFields("global", ["global"]),
+  },
+  mounted() {
+    this.setInitialActivity(new Date())
+  },
+  methods: {
+    ...mapMutations({
+      setInitialActivity: "global/setInitialActivity",
+    }),
+  },
+}
+</script>
 <style lang="scss">
 html,
 body,

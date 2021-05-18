@@ -8,22 +8,35 @@
         <!-- <div class="text-center mb-8">Períodos</div> -->
 
         <div class="days-distribution flex flex-col">
-          <div class="day grid grid-cols-7 auto-cols-auto my-3" v-for="(day, i) in daysOfTheWeek" :key="i">
-            <span class="self-end col-end-2 font-bold mr-3">
+          <div class="day-wrapper grid grid-cols-6 auto-cols-auto relative transition transform-gpu my-3 py-2" v-for="(day, i) in daysOfTheWeek" :key="day">
+            <span
+              class="day mr-3 self-end col-end-2"
+              :class="{
+                'today border-b-4 pl-2 border-accent  font-bold': i === today
+              }"
+            >
               {{ day }}
             </span>
-            <div class="day-share flex col-start-2 col-end-8">
+            <div class="day-share flex col-start-2 col-end-7">
               <div class="share-wrapper first-tag flex flex-col items-end">
-                <Tag>Tag 1</Tag>
-                <div class="bar rounded-full"></div>
+                <div class="flex items-center gap-1">
+                  <Tag>Tag 1</Tag>
+                </div>
+                <div class="bar rounded-full flex items-center justify-center">
+                  <span class="text-white text-sm font-bold">33%</span>
+                </div>
               </div>
               <div class="share-wrapper second-tag flex flex-col items-start ">
                 <Tag :alt-color="'primary-light'">Tag 2</Tag>
-                <div class="bar rounded-full"></div>
+                <div class="bar rounded-full flex items-center justify-center">
+                  <span class="text-white text-sm font-bold">33%</span>
+                </div>
               </div>
               <div class="share-wrapper others-tag flex flex-col items-center">
                 <Tag>Outros</Tag>
-                <div class="bar rounded-full"></div>
+                <div class="bar rounded-full flex items-center justify-center">
+                  <span class="text-white text-sm font-bold">33%</span>
+                </div>
               </div>
             </div>
           </div>
@@ -44,19 +57,38 @@ export default {
   },
   data() {
     return {
-      daysOfTheWeek: ['Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado', 'Domingo']
+      daysOfTheWeek: ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado']
+    }
+  },
+  computed: {
+    today() {
+      let now = new Date()
+      return now.getDay()
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.day-wrapper {
+  &:hover {
+    transform: scale(1.02);
+    .day:not(.today) {
+      text-shadow: 0 0 1px;
+      border-bottom: 1px solid $accent;
+    }
+  }
+}
+.spacer {
+  width: 5px;
+  left: -10px;
+}
 .day-share {
   .share-wrapper {
     width: 100%;
     margin: 0 1px;
     .bar {
-      height: 10px;
+      height: 15px;
       width: 100%;
     }
     &.first-tag {

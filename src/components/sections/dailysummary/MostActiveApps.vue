@@ -1,14 +1,28 @@
 <template>
-  <div class="flex flex-col">
-    <div class="font-bold w-full mb-3">Aplicativos mais utilizados</div>
-    <div class="flex">
-      <div v-for="i in 3" :key="i" class="icon  w-12 h-12 border-2 rounded-full border-gray-100 mr-3"></div>
+  <div class="flex flex-col flex-grow items-center">
+    <div class="font-bold w-full mb-3 text-center">
+      Aplicativos mais ativos
+    </div>
+    <div class="flex gap-3">
+      <div v-for="i in getMostActiveApps" :key="i" class="icon w-12 h-12 border-2 rounded-full border-gray-100"></div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import { mapFields } from 'vuex-map-fields'
+import orderBy from 'lodash/orderBy'
+
+export default {
+  computed: {
+    ...mapFields('processes', ['processes']),
+
+    getMostActiveApps() {
+      let orderedProcesses = orderBy(this.processes, ['created_at', 'desc'])
+      return orderedProcesses.slice(0, 3)
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

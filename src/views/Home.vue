@@ -36,10 +36,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.main-content {
-  // @include scroll-bar(5px);
-}
-
 .sidebar {
   min-width: 350px;
   max-width: 400px;
