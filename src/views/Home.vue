@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-screen flex auto-rows-min gap-0 max-h-screen">
+  <div class="w-full h-screen flex auto-rows-min max-h-screen">
     <div class="main-content overflow-y-auto flex flex-col gap-6 flex-grow px-4 py-4">
       <TabMenu />
       <DailySummarySection />

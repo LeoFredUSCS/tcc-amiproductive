@@ -4,7 +4,7 @@
       <h2>Resumo do dia</h2>
     </template>
     <template v-slot:content>
-      <div class="flex">
+      <div class="flex grid grid-cols-3 ">
         <TotalActivityTime />
         <MostActiveApps />
         <MostActiveTags />

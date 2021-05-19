@@ -1,32 +1,34 @@
 <template>
-  <li class="flex items-center app mb-6">
-    <div
-      class="status-indicator h-12 w-1 mr-2 rounded-full transition"
-      :class="{
-        'bg-accent': isTracked,
-        'bg-gray-300': !isTracked
-      }"
-    />
-    <div class="icon app-icon w-10 h-10 rounded-full overflow-hidden mr-3">
-      <div class="app-icon-image w-full h-full "></div>
-    </div>
-    <div class="flex flex-col flex-grow">
-      <div class="app-edit-info flex justify-between">
-        <span class="font-bold">{{ appName }}</span>
+  <li class="app mb-6 grid grid-cols-2 grid-flow-col">
+    <div class="flex items-center col-start-1 col-end-2 relative">
+      <div
+        class="app-status-marker h-full w-1 mr-2 rounded-full transition absolute"
+        :class="{
+          'bg-accent': isTracked,
+          'bg-gray-300': !isTracked
+        }"
+      />
+      <div class="icon app-icon w-10 h-10 rounded-full overflow-hidden mr-3">
+        <div class="app-icon-image w-full h-full "></div>
       </div>
-      <div class="app-edit-input">
-        <TimeSpan>
-          {{ formatedTimeSpan(app.created_at) }}
-        </TimeSpan>
+      <div class="flex flex-col flex-grow">
+        <div class="app-edit-info flex justify-between">
+          <span class="font-bold">{{ appName }}</span>
+        </div>
+        <div class="app-edit-input">
+          <TimeSpan>
+            {{ formatedTimeSpan(app.created_at) }}
+          </TimeSpan>
+        </div>
       </div>
     </div>
-    <div class="app-user-actions flex items-center justify-between mt-2 font-bold text-xs">
+    <div class="app-user-actions flex items-center justify-end mt-2 font-bold text-xs col-start-2 col-end-3 relative">
       <div class="flex" v-if="!shouldExpand">
         <!-- <EyeOffIcon class="w-5 h-5 mr-4" v-if="!isTracked" /> -->
         <EyeIcon class="w-5 h-5 mr-4" v-if="isTracked" />
         <span class="text-gray-400 mr-2" v-if="!isTracked">Não Rastreado</span>
       </div>
-      <div class="flex" v-if="shouldExpand">
+      <div class="flex absolute right-7" v-if="shouldExpand">
         <div
           class="flex border border-primary rounded-r-sm p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer"
           :class="{
@@ -120,6 +122,9 @@ export default {
 
 <style lang="scss" scoped>
 .app {
+  &-status-marker {
+    left: -10px;
+  }
   &-icon {
     &-image {
       background-image: url('https://filestore.community.support.microsoft.com/api/images/72e3f188-79a1-465f-90ca-27262d769841');

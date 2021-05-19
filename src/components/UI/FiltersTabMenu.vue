@@ -35,7 +35,7 @@ window.mitt = window.mitt || new mitt()
 
 export default {
   data: () => ({
-    selectedFilter: 'name'
+    selectedFilter: 'created_at'
   }),
   methods: {
     orderBy(param) {

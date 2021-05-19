@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col flex-grow items-center">
-    <div class="font-bold w-full mb-3 text-center">
+    <h3 class="font-bold w-full mb-3 text-center">
       Aplicativos mais ativos
-    </div>
+    </h3>
     <div class="flex gap-3">
       <div v-for="i in getMostActiveApps" :key="i" class="icon w-12 h-12 border-2 rounded-full border-gray-100"></div>
     </div>

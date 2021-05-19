@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col flex-grow items-end">
-    <div class="font-bold w-full mb-3 text-right">Categorias mais ativas</div>
+    <h3 class="font-bold w-full mb-3 text-right">Categorias mais ativas</h3>
     <div class="flex flex-wrap">
       <Tag v-for="tag in mostActiveTags" :key="tag">
         {{ tag.tagName }}
