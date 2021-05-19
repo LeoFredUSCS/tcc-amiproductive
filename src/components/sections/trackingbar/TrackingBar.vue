@@ -20,8 +20,6 @@ import ManageableAppBlock from '@/components/UI/ManageableAppBlock'
 import FiltersTabMenu from '@/components/UI/FiltersTabMenu'
 import { mapFields } from 'vuex-map-fields'
 import orderBy from 'lodash/orderBy'
-import mitt from 'mitt'
-window.mitt = window.mitt || new mitt()
 
 export default {
   components: {
@@ -43,13 +41,11 @@ export default {
     ...mapFields('processes', ['processes']),
     orderedProcessesList() {
       let processes = this.processes
-      let orderSide = this.orderBy === 'name' ? 'asc' : 'desc'
-      if (this.orderBy === 'status') orderBy(processes, e => e.status === 'tracking', [orderSide])
-
+      let orderSide = this.orderBy === 'status' ? 'desc' : 'asc'
+      if (this.orderBy === 'status') return orderBy(processes, [e => e.status === 'tracking', 'name'], [orderSide])
       return orderBy(processes, [this.orderBy], [orderSide])
     }
-  },
-  methods: {}
+  }
 }
 </script>
 

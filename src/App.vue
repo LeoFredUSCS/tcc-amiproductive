@@ -3,12 +3,10 @@
 </template>
 <script>
 import { mapMutations } from 'vuex'
-import { mapFields } from 'vuex-map-fields'
+import mitt from 'mitt'
+window.mitt = new mitt()
 
 export default {
-  computed: {
-    ...mapFields('global', ['global'])
-  },
   mounted() {
     this.setInitialActivity(new Date())
   },

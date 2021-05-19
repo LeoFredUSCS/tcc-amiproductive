@@ -108,7 +108,6 @@ export default {
       updateStatusField: 'processes/updateStatusField'
     }),
     defineAppState(status) {
-      this.isTracked = status
       this.shouldExpand = !this.shouldExpand
       let updatedApp = {
         process: this.appName.toLowerCase() + '.exe',

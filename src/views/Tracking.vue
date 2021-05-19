@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-screen flex auto-rows-min max-h-screen">
     <div class="main-content overflow-y-auto flex flex-col gap-6 flex-grow px-4 py-4 w-3/5">
-      <TabMenu />
+      <TabMenu class="pointer-none" />
       <MemoryConsumption />
       <ProcessingConsumption />
     </div>
@@ -24,6 +24,11 @@ export default {
     TrackingBar,
     MemoryConsumption,
     ProcessingConsumption
+  },
+  mounted() {
+    setTimeout(() => {
+      document.querySelector('.pointer-none').classList.remove('pointer-none')
+    }, 800)
   }
 }
 </script>
@@ -35,5 +40,8 @@ export default {
 .sidebar {
   min-width: 350px;
   max-width: 450px;
+}
+.pointer-none {
+  pointer-events: none;
 }
 </style>

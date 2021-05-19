@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center items-end">
+  <div class="flex flex-col items-center">
     <div class="bar-wrapper flex flex-col justify-end items-center mb-4">
       <TimeSpan class=" mb-4">
         {{ formatedTimeSpan(tag.activity) }}

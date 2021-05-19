@@ -30,9 +30,6 @@
 </template>
 
 <script>
-import mitt from 'mitt'
-window.mitt = window.mitt || new mitt()
-
 export default {
   data: () => ({
     selectedFilter: 'created_at'
