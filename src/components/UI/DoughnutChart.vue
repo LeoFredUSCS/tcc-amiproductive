@@ -15,7 +15,22 @@ export default defineComponent({
     }
   },
   mounted() {
-    this.renderChart(this.chartData, this.chartOptions)
+    this.renderChart(this.chartData, {
+      ...this.chartOptions,
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              var label = context.dataset.label || ''
+
+              console.log(context)
+
+              return label + '%'
+            }
+          }
+        }
+      }
+    })
   }
 })
 </script>
