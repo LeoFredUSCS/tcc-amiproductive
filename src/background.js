@@ -23,7 +23,7 @@ async function createWindow() {
     // frame: false,
     show: false,
     movable: true,
-    title: 'News App',
+    title: 'Charlinhos Tasks',
     webPreferences: {
       contextIsolation: true
     }

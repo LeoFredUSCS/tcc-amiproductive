@@ -2,7 +2,7 @@ module.exports = {
   pluginOptions: {
     electronBuilder: {
       builderOptions: {
-        productName: 'News App'
+        productName: 'Charlinhos Tasks'
       }
     }
   },
