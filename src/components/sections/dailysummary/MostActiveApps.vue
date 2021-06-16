@@ -4,7 +4,17 @@
       Aplicativos mais ativos
     </h3>
     <div class="flex gap-3">
-      <div v-for="i in getMostActiveApps" :key="i" class="icon w-12 h-12 border-2 rounded-full border-gray-100"></div>
+      <div v-for="(app, i) in getMostActiveApps" :key="i" class="icon w-12 h-12 bg-white p-1 rounded-full overflow-hidden border-gray-100 p-1">
+        <img
+          class="app-icon-image w-full h-full "
+          :src="
+            `https://res.cloudinary.com/de3in00p1/image/upload/ar_1:1,c_thumb,q_auto:good,w_150/icons/${app.name
+              .toLowerCase()
+              .split(' ')
+              .join('_')}.jpg`
+          "
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -27,7 +37,6 @@ export default {
 
 <style lang="scss" scoped>
 .icon {
-  background-image: url('https://filestore.community.support.microsoft.com/api/images/72e3f188-79a1-465f-90ca-27262d769841');
   background-size: cover;
   background-position: center;
 }

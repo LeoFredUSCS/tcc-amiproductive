@@ -8,7 +8,7 @@
           'bg-gray-300': !isTracked
         }"
       />
-      <div class="icon app-icon bg-white p-1 w-10 h-10 rounded-full overflow-hidden mr-3">
+      <div class="icon app-icon w-10 h-10 bg-white p-1 rounded-full overflow-hidden mr-3">
         <img
           class="app-icon-image w-full h-full "
           :src="
@@ -137,7 +137,6 @@ export default {
   }
   &-icon {
     &-image {
-      // background-image: url('https://filestore.community.support.microsoft.com/api/images/72e3f188-79a1-465f-90ca-27262d769841');
       background-size: cover;
       background-position: center;
     }

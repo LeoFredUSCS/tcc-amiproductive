@@ -101,7 +101,6 @@ export default {
 .app {
   &-icon {
     &-image {
-      // background-image: url('https://filestore.community.support.microsoft.com/api/images/72e3f188-79a1-465f-90ca-27262d769841');
       background-size: cover;
       background-position: center;
     }
