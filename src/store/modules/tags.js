@@ -167,7 +167,12 @@ const state = () => ({
 const getters = { getField }
 
 // mutations
-const mutations = { updateField }
+const mutations = {
+  updateField,
+  insertNewTag(state, tag) {
+    state.tags.push(tag)
+  }
+}
 
 // actions
 const actions = {}

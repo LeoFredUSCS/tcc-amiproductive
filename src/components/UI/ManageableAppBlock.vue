@@ -8,17 +8,8 @@
           'bg-gray-300': !isTracked
         }"
       />
-      <div class="icon app-icon w-10 h-10 bg-white p-1 rounded-full overflow-hidden mr-3">
-        <img
-          class="app-icon-image w-full h-full "
-          :src="
-            `https://res.cloudinary.com/de3in00p1/image/upload/ar_1:1,c_thumb,q_auto:good,w_150/icons/${app.name
-              .toLowerCase()
-              .split(' ')
-              .join('_')}.jpg`
-          "
-        />
-      </div>
+      <AppIcon :app-name="app.name" />
+
       <div class="flex flex-col flex-grow">
         <div class="app-edit-info flex justify-between">
           <span class="font-bold">{{ app.name }}</span>
@@ -80,10 +71,12 @@ import { EyeOffIcon, EyeIcon, DotsVerticalIcon } from '@heroicons/vue/outline'
 import { mapFields } from 'vuex-map-fields'
 import { mapMutations } from 'vuex'
 import { formatedTimeSpan } from '../../plugins/utils'
+import AppIcon from '@/components/UI/AppIcon'
 
 export default {
   components: {
     TimeSpan,
+    AppIcon,
     EyeOffIcon,
     EyeIcon,
     DotsVerticalIcon

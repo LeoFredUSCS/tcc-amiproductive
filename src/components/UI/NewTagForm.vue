@@ -23,15 +23,22 @@
       </button>
     </form>
     <transition name="fade">
-      <div v-if="error" class="status-msg absolute" :class="setErrClass">{{ statusValue }}</div>
+      <div v-if="error" class="status-msg flex items-center absolute justify-center w-full rounded-md py-1 font-bold shadow-md" :class="setErrClass">
+        <CheckCircleIcon v-if="errType === 'success'" class="w-5 h-5 mr-1" />
+        <ExclamationCircleIcon v-else class="w-5 h-5 mr-1" />
+        {{ statusValue }}
+      </div>
     </transition>
   </div>
 </template>
 
 <script>
 import { mapFields } from 'vuex-map-fields'
+import { mapMutations } from 'vuex'
+import { CheckCircleIcon, ExclamationCircleIcon } from '@heroicons/vue/outline'
 
 export default {
+  components: { CheckCircleIcon, ExclamationCircleIcon },
   data: () => {
     return {
       newTag: null,
@@ -48,19 +55,21 @@ export default {
         },
         3: {
           type: 'success',
-          msg: 'Categoria adicionada!'
+          msg: 'Nova categoria adicionada!'
         }
       }
     }
   },
-
   computed: {
     ...mapFields('tags', ['tags']),
     name() {
       return this.data
     },
     setErrClass() {
-      return this.errors?.[this.error]?.type === 'fail' ? 'text-red-500' : 'text-green-500'
+      return this.errors?.[this.error]?.type === 'fail' ? 'text-red-500 bg-red-100' : 'text-green-500 bg-green-100'
+    },
+    errType() {
+      return this.errors?.[this.error]?.type
     },
     statusValue() {
       return this.errors[this.error]?.msg
@@ -68,6 +77,10 @@ export default {
   },
 
   methods: {
+    ...mapMutations({
+      insertNewTag: 'tags/insertNewTag'
+    }),
+
     addNewTag() {
       this.error = null
       if (!this.newTag) {
@@ -82,12 +95,14 @@ export default {
       }
       this.error = 3
       this.clearStatus()
-      this.newTag = null
-      this.tags.push({ tagName: this.newTag, activity: null })
+      this.insertNewTag({ tagName: this.newTag, activity: null, relatedApps: [] })
     },
 
     clearStatus() {
-      setTimeout(() => (this.error = null), 2000)
+      setTimeout(() => {
+        if (this.errType === 'success') this.newTag = null
+        this.error = null
+      }, 2000)
     }
   }
 }
@@ -95,7 +110,9 @@ export default {
 
 <style lang="scss" scoped>
 .status-msg {
-  transform: translate(0.25rem, 1rem);
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 225%);
 }
 
 .fade-enter-active,

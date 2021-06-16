@@ -1,16 +1,6 @@
 <template>
   <li class="flex items-center app mb-4" :class="{ 'p-4 border border-gray-300 rounded-lg': !isTracked }">
-    <div class="icon app-icon bg-white p-1 w-12 h-12 rounded-full overflow-hidden mr-3">
-      <img
-        class="app-icon-image w-full h-full "
-        :src="
-          `https://res.cloudinary.com/de3in00p1/image/upload/ar_1:1,c_thumb,q_auto:good,w_150/icons/${app.name
-            .toLowerCase()
-            .split(' ')
-            .join('_')}.jpg`
-        "
-      />
-    </div>
+    <AppIcon :app-name="app.name" />
     <div class="app-edit flex flex-col flex-grow">
       <div class="app-edit-info flex justify-between">
         <span class="font-bold">{{ app.name }}</span>
@@ -54,12 +44,14 @@
 import TimeSpan from './TimeSpan'
 import { EyeOffIcon, EyeIcon } from '@heroicons/vue/outline'
 import { mapMutations } from 'vuex'
+import AppIcon from '@/components/UI/AppIcon'
 
 export default {
   components: {
     TimeSpan,
     EyeOffIcon,
-    EyeIcon
+    EyeIcon,
+    AppIcon
   },
   props: {
     app: { type: Object, default: () => {} }
