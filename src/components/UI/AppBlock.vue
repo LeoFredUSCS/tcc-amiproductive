@@ -2,14 +2,14 @@
   <li class="flex items-center app mb-4" :class="{ 'p-4 border border-gray-300 rounded-lg': !isTracked }">
     <div class="icon app-icon bg-white p-1 w-12 h-12 rounded-full overflow-hidden mr-3">
       <img
-        class="app-icon-image w-full h-full "
-        :src="
-          `https://res.cloudinary.com/de3in00p1/image/upload/c_thumb,q_auto:good,w_150/icons/${app.name
-            .toLowerCase()
-            .split(' ')
-            .join('_')}.jpg`
-        "
-      />
+          class="app-icon-image w-full h-full "
+          :src="
+            `https://res.cloudinary.com/de3in00p1/image/upload/ar_1:1,c_thumb,q_auto:good,w_150/icons/${app.name
+              .toLowerCase()
+              .split(' ')
+              .join('_')}.jpg`
+          "
+        />
     </div>
     <div class="app-edit flex flex-col flex-grow">
       <div class="app-edit-info flex justify-between">
