@@ -21,15 +21,7 @@
       </div>
       <div class="flex flex-col flex-grow">
         <div class="app-edit-info flex justify-between">
-          <!-- <span class="font-bold">{{ app.name }}</span> -->
-          <span class="font-bold">
-            {{
-              app.name
-                .toLowerCase()
-                .split(' ')
-                .join('_')
-            }}</span
-          >
+          <span class="font-bold">{{ app.name }}</span>
         </div>
         <div class="app-edit-input">
           <TimeSpan>
