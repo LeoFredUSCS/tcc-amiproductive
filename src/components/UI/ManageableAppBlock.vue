@@ -8,12 +8,28 @@
           'bg-gray-300': !isTracked
         }"
       />
-      <div class="icon app-icon w-10 h-10 rounded-full overflow-hidden mr-3">
-        <div class="app-icon-image w-full h-full "></div>
+      <div class="icon app-icon bg-white p-1 w-10 h-10 rounded-full overflow-hidden mr-3">
+        <img
+          class="app-icon-image w-full h-full "
+          :src="
+            `https://res.cloudinary.com/de3in00p1/image/upload/ar_1:1,c_thumb,q_auto:good,w_150/icons/${app.name
+              .toLowerCase()
+              .split(' ')
+              .join('_')}.jpg`
+          "
+        />
       </div>
       <div class="flex flex-col flex-grow">
         <div class="app-edit-info flex justify-between">
-          <span class="font-bold">{{ appName }}</span>
+          <!-- <span class="font-bold">{{ app.name }}</span> -->
+          <span class="font-bold">
+            {{
+              app.name
+                .toLowerCase()
+                .split(' ')
+                .join('_')
+            }}</span
+          >
         </div>
         <div class="app-edit-input">
           <TimeSpan>
@@ -22,11 +38,12 @@
         </div>
       </div>
     </div>
-    <div class="app-user-actions flex items-center justify-end mt-2 font-bold text-xs col-start-2 col-end-3 relative">
+    <div class="app-user-actions flex items-center justify-end mt-2 font-bold col-start-2 col-end-3 relative">
       <div class="flex" v-if="!shouldExpand">
         <!-- <EyeOffIcon class="w-5 h-5 mr-4" v-if="!isTracked" /> -->
         <EyeIcon class="w-5 h-5 mr-4" v-if="isTracked" />
-        <span class="text-gray-400 mr-2" v-if="!isTracked">Não Rastreado</span>
+        <EyeOffIcon class="w-5 h-5 mr-4" v-if="isIgnored" />
+        <span class=" mr-2 text-sm text-gray-400" v-if="isPending">Não Rastreado</span>
       </div>
       <div class="flex absolute right-7" v-if="shouldExpand">
         <div
@@ -34,7 +51,7 @@
           :class="{
             'bg-primary text-white font-bold': !isTracked
           }"
-          @click="defineAppState(false)"
+          @click="defineAppState('ignored')"
         >
           <EyeOffIcon class="w-4 h-4 mr-1" />
           <span class="text-xs">Ignorar</span>
@@ -45,7 +62,7 @@
             'bg-primary text-white font-bold': isTracked,
             undefined: undefinedState
           }"
-          @click="defineAppState(true)"
+          @click="defineAppState('tracking')"
         >
           <EyeIcon class="w-4 h-4 mr-1" />
           <span class="text-xs">Rastrerar</span>
@@ -96,10 +113,11 @@ export default {
     isTracked() {
       return this.app.status === 'tracking'
     },
-    appName() {
-      let name = this.app['name'].split('.')[0]
-      let capital = name.charAt(0).toUpperCase()
-      return capital + name.substring(1)
+    isIgnored() {
+      return this.app.status === 'ignored'
+    },
+    isPending() {
+      return this.app.status === 'pending'
     }
   },
   methods: {
@@ -108,10 +126,11 @@ export default {
       updateStatusField: 'processes/updateStatusField'
     }),
     defineAppState(status) {
+      console.log(status)
       this.shouldExpand = !this.shouldExpand
       let updatedApp = {
-        process: this.appName.toLowerCase() + '.exe',
-        status: status ? 'tracking' : 'ignored'
+        process: this.app.name,
+        status
       }
       this.updateStatusField(updatedApp)
     }
@@ -126,7 +145,7 @@ export default {
   }
   &-icon {
     &-image {
-      background-image: url('https://filestore.community.support.microsoft.com/api/images/72e3f188-79a1-465f-90ca-27262d769841');
+      // background-image: url('https://filestore.community.support.microsoft.com/api/images/72e3f188-79a1-465f-90ca-27262d769841');
       background-size: cover;
       background-position: center;
     }

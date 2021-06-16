@@ -5,7 +5,7 @@ function defaultState() {
     chosen_period: 'day',
     consumptions: [
       {
-        process_name: 'explorer.exe',
+        process_name: 'Trabalho',
         memmory: {
           percentage: 0.2
         },
@@ -20,7 +20,7 @@ function defaultState() {
         }
       },
       {
-        process_name: 'chrome.exe',
+        process_name: 'Jogos',
         memmory: {
           percentage: 0.2
         },

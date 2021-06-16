@@ -1,5 +1,5 @@
 <template>
-  <Section class="edit-app-container h-auto overflow-y-auto">
+  <Section class="edit-app-container h-auto overflow-y-auto flex-grow">
     <template v-slot:title>
       <h2>Classifique seus apps</h2>
     </template>

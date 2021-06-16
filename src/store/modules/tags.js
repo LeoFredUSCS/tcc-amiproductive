@@ -6,49 +6,43 @@ const state = () => ({
   tags: [
     {
       tagName: 'Jogos',
-      // activity: "1h15 min"
       activity: moment(moment())
         .subtract(75, 'minutes')
         .toDate()
     },
     {
       tagName: 'Internet',
-      // activity: "38 min"
       activity: moment(moment())
         .subtract(38, 'minutes')
         .toDate()
     },
     {
       tagName: 'Navegador',
-      // activity: "35 min"
+      processes: [{ processName: '', activity: '' }],
       activity: moment(moment())
         .subtract(35, 'minutes')
-        .toDate()
+        .toDate(),
     },
     {
       tagName: 'Mídia',
-      // activity: "46 min"
       activity: moment(moment())
         .subtract(46, 'minutes')
         .toDate()
     },
     {
       tagName: 'Documentos',
-      // activity: "33 min"
       activity: moment(moment())
         .subtract(33, 'minutes')
         .toDate()
     },
     {
       tagName: 'Trabalho',
-      // activity: "1h35 min"
       activity: moment(moment())
         .subtract(95, 'minutes')
         .toDate()
     },
     {
       tagName: 'Notícias',
-      // activity: "10 min"
       activity: moment(moment())
         .subtract(10, 'minutes')
         .toDate()

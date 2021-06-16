@@ -2,27 +2,89 @@ import { getField, updateField } from 'vuex-map-fields'
 
 function defaultState() {
   return {
-    orderBy: 'created_at',
     processes: [
       {
-        name: 'explorer.exe',
+        name: 'Microsoft Edge',
         description: 'Processo do Windows Explorer',
         status: 'tracking',
-        icon_url: 'image.png',
         created_at: '2021-05-17T08:00:00+0000'
       },
       {
-        name: 'chrome.exe',
+        name: 'Google Chrome',
         description: 'Processo do Google Chrome',
         status: 'ignored',
-        icon_url: 'image.png',
         created_at: '2021-05-16T17:27:53+0000'
       },
       {
-        name: 'discord.exe',
+        name: 'Discord',
         description: 'Processo do Discord',
-        status: 'paused',
-        icon_url: 'image.png',
+        status: 'pending',
+        created_at: '2021-05-15T00:27:53+0000'
+      },
+      {
+        name: 'Notepad++',
+        description: 'Processo do Windows Explorer',
+        status: 'pending',
+        created_at: '2021-05-17T08:00:00+0000'
+      },
+      {
+        name: 'Notion',
+        description: 'Processo do Google Chrome',
+        status: 'ignored',
+        created_at: '2021-05-16T17:27:53+0000'
+      },
+      {
+        name: 'Slack',
+        description: 'Processo do Discord',
+        status: 'pending',
+        created_at: '2021-05-15T00:27:53+0000'
+      },
+      {
+        name: 'Spotify',
+        description: 'Processo do Windows Explorer',
+        status: 'tracking',
+        created_at: '2021-05-17T08:00:00+0000'
+      },
+      {
+        name: 'EpicGamesLauncher',
+        description: 'Processo do Windows Explorer',
+        status: 'tracking',
+        created_at: '2021-05-17T08:00:00+0000'
+      },
+      {
+        name: 'Visual Studio Code',
+        description: 'Processo do Google Chrome',
+        status: 'ignored',
+        created_at: '2021-05-16T17:27:53+0000'
+      },
+      {
+        name: 'Whatsapp',
+        description: 'Processo do Discord',
+        status: 'pending',
+        created_at: '2021-05-15T00:27:53+0000'
+      },
+      {
+        name: 'Figma',
+        description: 'Processo do Windows Explorer',
+        status: 'tracking',
+        created_at: '2021-05-17T08:00:00+0000'
+      },
+      {
+        name: 'Firefox',
+        description: 'Processo do Google Chrome',
+        status: 'ignored',
+        created_at: '2021-05-16T17:27:53+0000'
+      },
+      {
+        name: 'Steam',
+        description: 'Processo do Discord',
+        status: 'pending',
+        created_at: '2021-05-15T00:27:53+0000'
+      },
+      {
+        name: 'Postman',
+        description: 'Processo do Discord',
+        status: 'pending',
         created_at: '2021-05-15T00:27:53+0000'
       }
     ]
