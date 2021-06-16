@@ -62,7 +62,7 @@ const state = () => ({
         {
           appId: 'edge',
           appActivity: 15
-        },
+        }
       ],
       activity: moment(moment())
         .subtract(95, 'minutes')
@@ -98,7 +98,7 @@ const state = () => ({
         {
           appId: 'edge',
           appActivity: 15
-        },
+        }
       ],
       activity: moment(moment())
         .subtract(38, 'minutes')
@@ -134,7 +134,7 @@ const state = () => ({
         {
           appId: 'postman',
           appActivity: 35
-        },
+        }
       ],
       activity: moment(moment())
         .subtract(35, 'minutes')
@@ -154,7 +154,7 @@ const state = () => ({
         {
           appId: 'chrome',
           appActivity: 379
-        },
+        }
       ],
       activity: moment(moment())
         .subtract(46, 'minutes')
@@ -171,6 +171,16 @@ const mutations = {
   updateField,
   insertNewTag(state, tag) {
     state.tags.push(tag)
+  },
+  relateApp(state, { app, tagName }) {
+    console.log('state', state)
+    console.log('app', app)
+    console.log('tagName', tagName)
+  },
+  removeAppFromTag(state, { app, tagName }) {
+    console.log('state', state)
+    console.log('app', app)
+    console.log('tagName', tagName)
   }
 }
 

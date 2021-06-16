@@ -16,7 +16,7 @@ protocol.registerSchemesAsPrivileged([{ scheme: 'app', privileges: { secure: tru
 
 async function createWindow() {
   mainWindow = new BrowserWindow({
-    minWidth: 1000,
+    minWidth: 1100,
     maxWidth: 1300,
     minHeight: 800,
     maxHeight: 1200,

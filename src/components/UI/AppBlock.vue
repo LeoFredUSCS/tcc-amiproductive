@@ -9,13 +9,7 @@
         </TimeSpan>
       </div>
       <div class="app-edit-input" v-if="isTracked">
-        <input
-          type="text"
-          name="tags"
-          id="tag-input"
-          placeholder="Adicione categorias"
-          class="rounded-md border border-gray-300 p-2 hover:border-primary focus:border-primary w-full"
-        />
+        <TagSelector :app="app" />
       </div>
       <div class="app-user-actions flex items-center justify-between mt-2 font-bold text-xs" v-if="isPending">
         <div class="flex">
@@ -45,13 +39,15 @@ import TimeSpan from './TimeSpan'
 import { EyeOffIcon, EyeIcon } from '@heroicons/vue/outline'
 import { mapMutations } from 'vuex'
 import AppIcon from '@/components/UI/AppIcon'
+import TagSelector from '@/components/UI/TagSelector'
 
 export default {
   components: {
     TimeSpan,
     EyeOffIcon,
     EyeIcon,
-    AppIcon
+    AppIcon,
+    TagSelector
   },
   props: {
     app: { type: Object, default: () => {} }
@@ -60,8 +56,7 @@ export default {
     return {
       icon: '',
       name: 'Aplicativo',
-      activityTimeSpan: '1h 25 min',
-      belongsTo: []
+      activityTimeSpan: '1h 25 min'
     }
   },
   methods: {

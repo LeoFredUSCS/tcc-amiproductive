@@ -88,7 +88,7 @@ export default {
         this.clearStatus()
         return
       }
-      let res = this.tags.filter(t => t.tagName.toLowerCase() === this.newTag.toLowerCase())
+      let res = this.tags.filter(tag => tag.tagName.toLowerCase() === this.newTag.toLowerCase())
       if (res.length > 0) {
         this.error = 2
         return this.clearStatus()

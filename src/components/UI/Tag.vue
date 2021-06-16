@@ -6,7 +6,7 @@
     <span class="font-bold">
       <slot></slot>
     </span>
-    <XIcon v-if="dismissable" class="w-4 ml-2 text-white" />
+    <XIcon v-if="dismissable" class="w-4 ml-2 text-white" @click.prevent="emitDismiss" />
   </div>
 </template>
 
@@ -19,6 +19,11 @@ export default {
   },
   components: {
     XIcon
+  },
+  methods: {
+    emitDismiss() {
+      this.$emit('dismiss')
+    }
   }
 }
 </script>
