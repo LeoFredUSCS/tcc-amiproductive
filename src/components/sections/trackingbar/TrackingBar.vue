@@ -27,18 +27,9 @@ export default {
     ManageableAppBlock,
     FiltersTabMenu
   },
-  data() {
-    return {
-      orderBy: 'created_at'
-    }
-  },
-  mounted() {
-    window.mitt.on('order-by', param => {
-      this.orderBy = param
-    })
-  },
+
   computed: {
-    ...mapFields('processes', ['processes']),
+    ...mapFields('processes', ['processes', 'orderBy']),
     orderedProcessesList() {
       let processes = this.processes
       let orderSide = this.orderBy === 'status' ? 'desc' : 'asc'

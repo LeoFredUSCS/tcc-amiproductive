@@ -4,25 +4,13 @@
       Ordenar os aplicativos
     </h3>
     <nav class="-mb-px flex justify-between" aria-label="Tabs">
-      <div
-        class="w-full border-transparent text-center text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium cursor-pointer"
-        :class="{ selected: selectedFilter === 'name' }"
-        @click="orderBy('name')"
-      >
+      <div :class="[baseClass, { selected: orderBy === 'name' }]" @click="orderBy = 'name'">
         <span class="label">Nome</span>
       </div>
-      <div
-        class="w-full border-transparent text-center text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium cursor-pointer"
-        :class="{ selected: selectedFilter === 'created_at' }"
-        @click="orderBy('created_at')"
-      >
+      <div :class="[baseClass, { selected: orderBy === 'created_at' }]" @click="orderBy = 'created_at'">
         <span class="label">Atividade</span>
       </div>
-      <div
-        class="w-full border-transparent text-center text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium cursor-pointer"
-        :class="{ selected: selectedFilter === 'status' }"
-        @click="orderBy('status')"
-      >
+      <div :class="[baseClass, { selected: orderBy === 'status' }]" @click="orderBy = 'status'">
         <span class="label">Status</span>
       </div>
     </nav>
@@ -30,18 +18,22 @@
 </template>
 
 <script>
+import { mapFields } from 'vuex-map-fields'
+
 export default {
-  data: () => ({
-    selectedFilter: 'created_at'
-  }),
-  methods: {
-    orderBy(param) {
-      this.selectedFilter = param
-      window.mitt.emit('order-by', param)
+  data() {
+    return {
+      baseClass:
+        'w-full border-transparent text-center text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium cursor-pointer'
     }
+  },
+
+  computed: {
+    ...mapFields('processes', ['processes', 'orderBy'])
   }
 }
 </script>
+
 <style lang="scss" scoped>
 .selected {
   border-bottom: 2px solid $primary;

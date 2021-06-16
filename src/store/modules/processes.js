@@ -2,6 +2,7 @@ import { getField, updateField } from 'vuex-map-fields'
 
 function defaultState() {
   return {
+    orderBy: 'created_at',
     processes: [
       {
         name: 'explorer.exe',

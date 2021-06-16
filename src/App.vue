@@ -8,9 +8,6 @@ import mitt from 'mitt'
 window.mitt = new mitt()
 
 export default {
-  beforeMount() {
-    this.getData()
-  },
   mounted() {
     this.setInitialActivity(new Date())
   },
