@@ -10,6 +10,7 @@
     :max="2"
     :clear="false"
     :options="options"
+    @click="getTags()"
     @select="addTag"
   >
     <template v-slot:tag="{ option }">
@@ -41,10 +42,13 @@ export default {
     }
   },
   beforeMount() {
-    this.options = this.getTags()
+    this.getTags()
   },
   computed: {
-    ...mapFields('tags', ['tags'])
+    ...mapFields('tags', ['tags']),
+    tagsList() {
+      return this.tags
+    }
   },
   methods: {
     ...mapMutations({
@@ -52,7 +56,7 @@ export default {
       removeAppFromTag: 'tags/removeAppFromTag'
     }),
     getTags() {
-      return this.tags.map(t => {
+      this.options = this.tags.map(t => {
         return t.tagName
       })
     },
