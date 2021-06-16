@@ -4,7 +4,7 @@
       <h2>Como você está indo hoje</h2>
     </template>
     <template v-slot:content>
-      <div class="flex justify-around">
+      <div class="performance-container flex justify-around">
         <TagPerformance v-for="(tag, i) in topTags" :key="i" :tag="tag" :bar-size="mapActivityToBars[i]" />
       </div>
     </template>
@@ -45,4 +45,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.performance-container {
+  height: 390px;
+}
+</style>

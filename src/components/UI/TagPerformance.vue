@@ -1,10 +1,11 @@
 <template>
-  <div class="flex flex-col items-center">
-    <div class="bar-wrapper flex flex-col justify-end items-center mb-4">
-      <TimeSpan class=" mb-4">
-        {{ minutesToTimespan(tag.activity) }}
-      </TimeSpan>
-      <div class="percentage-bar flex rounded-full bg-primary-dark" :style="{ 'max-height': barSize.toFixed(2) + '%' }" />
+  <div class="flex flex-col items-center mt-auto">
+    <div class="bar-wrapper  flex flex-col justify-end items-center mb-4">
+      <div class="relative percentage-bar flex rounded-full bg-primary-dark" :style="{ 'max-height': barSize.toFixed(2) + '%' }">
+        <TimeSpan class="timespan mb-4 absolute bottom-full w-max">
+          {{ minutesToTimespan(tag.activity) }}
+        </TimeSpan>
+      </div>
     </div>
     <TagComponent>
       {{ tag.tagName }}
@@ -38,6 +39,10 @@ export default {
   .percentage-bar {
     height: 100%;
     width: 15px;
+    .timespan {
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 }
 </style>
