@@ -26,13 +26,13 @@
         <!-- <EyeOffIcon class="w-5 h-5 mr-4" v-if="!isTracked" /> -->
         <EyeIcon class="w-5 h-5 mr-4" v-if="isTracked" />
         <EyeOffIcon class="w-5 h-5 mr-4" v-if="isIgnored" />
-        <span class=" mr-2 text-sm text-gray-400" v-if="isPending">Não Rastreado</span>
+        <span class=" mr-2 flex items-center text-sm text-gray-400" v-if="isPending">Defina este aplicativo</span>
       </div>
       <div class="flex absolute right-7" v-if="shouldExpand">
         <div
           class="flex border border-primary rounded-r-sm p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer"
           :class="{
-            'bg-primary text-white font-bold': !isTracked
+            'bg-primary text-white font-bold': isIgnored
           }"
           @click="defineAppState('ignored')"
         >

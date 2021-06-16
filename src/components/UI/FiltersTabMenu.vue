@@ -11,7 +11,7 @@
         <span class="label">Atividade</span>
       </div>
       <div :class="[baseClass, { selected: orderBy === 'status' }]" @click="orderBy = 'status'">
-        <span class="label">Status</span>
+        <span class="label">Estado</span>
       </div>
     </nav>
   </div>

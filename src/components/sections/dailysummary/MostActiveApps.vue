@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col flex-grow items-center">
     <h3 class="font-bold w-full mb-3 text-center">
-      Aplicativos mais ativos
+      Aplicativos mais utilizados hoje
     </h3>
     <div class="flex gap-3">
       <AppIcon v-for="(app, i) in getMostActiveApps" :key="i" :app-name="app.name" :is-highlighted="true" />

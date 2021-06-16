@@ -1,6 +1,6 @@
 <template>
   <div class="total-activity flex flex-col">
-    <h3 class="font-bold w-full mb-3">Atividade Total</h3>
+    <h3 class="font-bold w-full mb-3">Monitorado hoje</h3>
     <div class="flex font-light">
       <span :class="started === 'Carregando' ? 'text-3xl' : 'text-5xl'">{{ started }}</span>
     </div>

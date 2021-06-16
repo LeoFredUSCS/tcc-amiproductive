@@ -1,14 +1,27 @@
 <template>
-  <Section class="edit-app-container h-auto overflow-y-auto flex-grow">
+  <Section class="edit-app-container h-auto overflow-y-auto" :class="{ 'flex-grow': trackingApps.length > 4 }">
     <template v-slot:title>
-      <h2>Classifique seus apps</h2>
+      <h2>Categorize seus aplicativos</h2>
     </template>
     <template v-slot:content>
       <div class="flex flex-col">
-        <NewTagForm class="my-5" />
+        <NewTagForm class="mt-5" />
         <ul class="mt-10">
           <AppBlock v-for="app in trackingApps" :app="app" :key="app.name" />
         </ul>
+      </div>
+      <div v-if="!hasTrackingApps" class="flex flex-col items-center">
+        <h3 class="text-lg text-center leading-6 font-bold mb-4 border-2 border-gray rounded-xl p-2">
+          Aqui você poderá categorizar os aplicativos monitorados
+        </h3>
+        <router-link to="/tracking" class="w-full shadow-lg">
+          <div
+            class="tacking-btn border-2 font-semibold border-gray rounded-lg p-2 w-full flex items-center justify-center bg-primary-dark hover:bg-primary-darker text-white transition"
+          >
+            <span>Começar a monitorar aplicativos</span>
+            <ArrowCircleRightIcon class="arrow-icon w-5 h-5 ml-2" />
+          </div>
+        </router-link>
       </div>
     </template>
   </Section>
@@ -16,6 +29,7 @@
 
 <script>
 import Section from '@/components/UI/Section'
+import { ArrowCircleRightIcon } from '@heroicons/vue/outline'
 import NewTagForm from '@/components/UI/NewTagForm'
 import AppBlock from '@/components/UI/AppBlock'
 import { mapFields } from 'vuex-map-fields'
@@ -25,6 +39,7 @@ export default {
   components: {
     Section,
     NewTagForm,
+    ArrowCircleRightIcon,
     AppBlock
   },
   computed: {
@@ -32,6 +47,9 @@ export default {
     trackingApps() {
       let trackingProcesses = this.processes.filter(app => app.status === 'tracking')
       return orderBy(trackingProcesses, ['created_at'], ['asc'])
+    },
+    hasTrackingApps() {
+      return this.trackingApps.length > 0
     }
   }
 }
@@ -40,5 +58,15 @@ export default {
 <style lang="scss" scoped>
 .edit-app-container {
   @include scroll-bar(5px);
+  .tacking-btn {
+    .arrow-icon {
+      transition: all ease-in-out 100ms;
+    }
+    &:hover {
+      .arrow-icon {
+        transform: translateX(4px);
+      }
+    }
+  }
 }
 </style>

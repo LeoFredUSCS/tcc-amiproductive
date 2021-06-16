@@ -10,7 +10,7 @@
                 class="whitespace-nowrap py-4 w-2/4 border-b-2 font-medium text-lg"
                 :class="activeClass[$route.path === '/' ? 'active' : 'default']"
               >
-                Resumo
+                Monitoramento
               </router-link>
 
               <router-link
@@ -19,7 +19,7 @@
                 :class="activeClass[$route.path === '/tracking' ? 'active' : 'default']"
                 aria-current="page"
               >
-                Rastreamento
+                Consumo / Aplicativos
               </router-link>
             </nav>
           </div>
