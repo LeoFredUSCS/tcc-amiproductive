@@ -2,7 +2,7 @@
   <Multiselect
     v-model="selectedTags"
     mode="tags"
-    placeholder="Select employees"
+    placeholder="Selecione uma categoria..."
     trackBy="name"
     label="name"
     :searchable="true"
