@@ -13,6 +13,7 @@
 import { mapFields } from 'vuex-map-fields'
 import Tag from '@/components/UI/Tag'
 import orderBy from 'lodash/orderBy'
+import { todaysTagsActivities } from '../../../plugins/utils'
 
 export default {
   components: {
@@ -21,10 +22,13 @@ export default {
   data() {
     return {}
   },
+  methods: {
+    todaysTagsActivities
+  },
   computed: {
     ...mapFields('tags', ['tags']),
     mostActiveTags() {
-      let activeTags = orderBy(this.tags, ['activity'], ['asc'])
+      let activeTags = orderBy(this.todaysTagsActivities(this.tags), ['activity'], ['desc'])
       return activeTags.slice(0, 2)
     }
   }

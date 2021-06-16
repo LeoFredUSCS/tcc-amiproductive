@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center">
     <div class="bar-wrapper flex flex-col justify-end items-center mb-4">
       <TimeSpan class=" mb-4">
-        {{ formatedTimeSpan(tag.activity) }}
+        {{ minutesToTimespan(tag.activity) }}
       </TimeSpan>
       <div class="percentage-bar flex rounded-full bg-primary-dark" :style="{ 'max-height': barSize.toFixed(2) + '%' }" />
     </div>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { formatedTimeSpan } from '../../plugins/utils'
+import { minutesToTimespan } from '../../plugins/utils'
 import TimeSpan from './TimeSpan'
 import TagComponent from './Tag'
 
@@ -27,7 +27,7 @@ export default {
     TagComponent
   },
   methods: {
-    formatedTimeSpan
+    minutesToTimespan
   }
 }
 </script>
