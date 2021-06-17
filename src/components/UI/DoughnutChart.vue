@@ -22,9 +22,6 @@ export default defineComponent({
           callbacks: {
             label: function(context) {
               var label = context.dataset.label || ''
-
-              console.log(context)
-
               return label + '%'
             }
           }

@@ -3,7 +3,7 @@ import 'moment-duration-format'
 import 'moment/locale/pt-br'
 
 function minutesToTimespan(activity) {
-  return moment.duration(activity, 'minutes').format('h[h] m[min]')
+  return moment.duration(activity, 'minutes').format('h[h] mm[min]')
 }
 
 function todaysTagsActivities(tagsArr) {
@@ -15,7 +15,12 @@ function todaysTagsActivities(tagsArr) {
 
 function formatedTimeSpan(activity) {
   let activityInMinutes = moment(activity).diff(moment(), 'minutes') * -1
-  return moment.duration(activityInMinutes, 'minutes').format('h[h] m[min]')
+  return moment.duration(activityInMinutes, 'minutes').format('h[h] mm[min]')
 }
 
-export { formatedTimeSpan, minutesToTimespan, todaysTagsActivities }
+function timeStampToMinutes(time) {
+  let activityInMinutes = moment(time).diff(moment(), 'minutes') * -1
+  return activityInMinutes
+}
+
+export { formatedTimeSpan, minutesToTimespan, todaysTagsActivities, timeStampToMinutes }

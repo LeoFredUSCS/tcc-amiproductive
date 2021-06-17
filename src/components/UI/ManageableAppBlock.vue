@@ -15,9 +15,7 @@
           <span class="font-bold">{{ app.name }}</span>
         </div>
         <div class="app-edit-input">
-          <TimeSpan>
-            {{ formatedTimeSpan(app.created_at) }}
-          </TimeSpan>
+          <TimeSpan :activity="app.created_at" />
         </div>
       </div>
     </div>
@@ -70,7 +68,6 @@ import TimeSpan from './TimeSpan'
 import { EyeOffIcon, EyeIcon, DotsVerticalIcon } from '@heroicons/vue/outline'
 import { mapFields } from 'vuex-map-fields'
 import { mapMutations } from 'vuex'
-import { formatedTimeSpan } from '../../plugins/utils'
 import AppIcon from '@/components/UI/AppIcon'
 
 export default {
@@ -106,12 +103,10 @@ export default {
     }
   },
   methods: {
-    formatedTimeSpan,
     ...mapMutations({
       updateStatusField: 'processes/updateStatusField'
     }),
     defineAppState(status) {
-      console.log(status)
       this.shouldExpand = !this.shouldExpand
       let updatedApp = {
         process: this.app.name,

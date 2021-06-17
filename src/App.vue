@@ -3,31 +3,84 @@
 </template>
 
 <script>
+import { mapFields } from 'vuex-map-fields'
 import { mapMutations } from 'vuex'
 import mitt from 'mitt'
+import moment from 'moment'
+import 'moment-duration-format'
+import 'moment/locale/pt-br'
 window.mitt = new mitt()
+import { timeStampToMinutes } from './plugins/utils'
 
 export default {
+  data() {
+    return {
+      initDayTime: null
+    }
+  },
   mounted() {
-    this.setInitialActivity(new Date())
+    let initDay = moment()
+      .set('hour', 8)
+      .set('minute', 37)
+      .format()
+
+    this.initDay(initDay)
+    this.updateAppsStartingTime()
+    this.initDayTime = initDay
+    this.setInitialActivity(initDay)
+    // this.setInitialActivity(new Date())
+  },
+  computed: {
+    ...mapFields('tags', ['tags']),
+    ...mapFields('processes', ['processes']),
+    ...mapFields('global', ['myDayHasStartedAt'])
   },
   methods: {
+    timeStampToMinutes,
     ...mapMutations({
-      setInitialActivity: 'global/setInitialActivity'
+      setInitialActivity: 'global/setInitialActivity',
+      initDay: 'global/initDay',
+      setDailyActivity: 'processes/setDailyActivity',
+      updateAppsActivity: 'tags/updateAppsActivity'
     }),
-    async getData() {
-      const ax = this.axios.create({
-        baseURL: 'http://localhost:3000',
-        timeout: 1000,
-        headers: { 'Content-Type': 'application/json' }
+    generateRandomHour() {
+      let currentHour = moment().hour()
+      let startedAt = moment(this.myDayHasStartedAt).hour()
+      let difference = currentHour - startedAt
+      return parseInt(Math.random() * (difference - 1) + 1)
+    },
+    generateRandomMin() {
+      let final = parseInt(Math.random() * (59 - 1) + 1)
+      return final
+    },
+    updateAppsStartingTime() {
+      this.processes.map(process => {
+        let updatedHour = this.generateRandomHour()
+        let updatedMin = this.generateRandomMin()
+        this.setDailyActivity({
+          id: process.id,
+          started_at: moment(this.myDayHasStartedAt)
+            .add({ hour: updatedHour, minutes: updatedMin })
+            .utcOffset('-0300')
+            .format()
+        })
       })
-
-      try {
-        const res = await ax.get('/tags', { data: { qty_per_page: 5, page: 1 } })
-        console.log(res)
-      } catch (err) {
-        console.log(err.response && err.response.data)
-      }
+    },
+    getProcessActivity(appId) {
+      return this.processes.find(proc => proc.id === appId)
+    },
+    updateRelatedAppsActivity() {
+      this.tags.forEach(tag => {
+        tag.relatedApps.forEach(app => {
+          let created_at = this.getProcessActivity(app.appId).created_at
+          let convertToMinutes = this.timeStampToMinutes(created_at)
+          this.updateAppsActivity({
+            tagName: tag.tagName,
+            appId: app.appId,
+            appActivity: convertToMinutes
+          })
+        })
+      })
     }
   }
 }

@@ -26,6 +26,7 @@ import { mapFields } from 'vuex-map-fields'
 import { mapMutations } from 'vuex'
 import Multiselect from '@vueform/multiselect'
 import Tag from '@/components/UI/Tag'
+import { timeStampToMinutes } from '../../plugins/utils'
 
 export default {
   components: {
@@ -52,8 +53,8 @@ export default {
   },
   methods: {
     ...mapMutations({
-      relateAppToTag: 'tags/relateApp',
-      removeAppFromTag: 'tags/removeAppFromTag'
+      relateAppToTagToTag: 'tags/relateAppToTag',
+      unrelateAppFromTag: 'tags/unrelateAppFromTag'
     }),
     getTags() {
       this.options = this.tags.map(t => {
@@ -61,11 +62,17 @@ export default {
       })
     },
     addTag(option) {
-      this.relateAppToTag({ app: this.app, tagName: option })
+      this.relateAppToTagToTag({
+        app: { appId: this.app.id, appActivity: timeStampToMinutes(this.app.created_at) },
+        tagName: option
+      })
     },
     removeTag(option) {
       this.selectedTags = this.selectedTags.filter(tag => tag !== option.value)
-      this.removeAppFromTag({ app: this.app, tagName: option })
+      this.unrelateAppFromTag({
+        appId: this.app.id,
+        tagName: option.name
+      })
     }
   }
 }

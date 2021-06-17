@@ -1,11 +1,11 @@
 <template>
   <div class="w-full h-screen flex auto-rows-min max-h-screen">
-    <div class="main-content overflow-y-auto flex flex-col gap-6 flex-grow px-4 py-4 w-3/5">
+    <div class="main-content overflow-y-auto flex flex-col gap-6 flex-grow px-4 py-4">
       <TabMenu class="pointer-none" />
       <MemoryConsumption />
       <ProcessingConsumption />
     </div>
-    <div class="sidebar flex flex-col flex-grow flex-shrink pr-4 py-4 border">
+    <div class="sidebar h-full flex flex-col flex-grow flex-shrink gap-6 pr-4 py-4">
       <TrackingBar />
     </div>
   </div>
@@ -35,13 +35,19 @@ export default {
 <style lang="scss" scoped>
 .main-content {
   @include scroll-bar(5px);
-  z-index: 1;
 }
 .sidebar {
   min-width: 350px;
   max-width: 450px;
+  z-index: 1;
 }
 .pointer-none {
   pointer-events: none;
+}
+.main-content,
+.sidebar {
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
 }
 </style>

@@ -1,27 +1,35 @@
 <template>
   <div class="my-5">
-    <div class="w-2/4 mx-auto">
+    <div class="w-full mx-auto pr-4">
       <div>
-        <div class="block">
-          <div class="border-b border-gray-300">
-            <nav class="-mb-px flex justify-center items-center text-center" aria-label="Tabs">
-              <router-link
-                to="/"
-                class="whitespace-nowrap py-4 w-2/4 border-b-2 font-medium text-lg"
-                :class="activeClass[$route.path === '/' ? 'active' : 'default']"
-              >
-                Monitoramento
-              </router-link>
-
-              <router-link
-                to="/tracking"
-                class="whitespace-nowrap py-4 w-2/4 border-b-2 font-medium text-lg"
-                :class="activeClass[$route.path === '/tracking' ? 'active' : 'default']"
-                aria-current="page"
-              >
-                Consumo / Aplicativos
-              </router-link>
-            </nav>
+        <div class="flex items-center justify-center">
+          <div class="app-logo mr-auto w-2/4">
+            <!-- <img src="https://res.cloudinary.com/de3in00p1/image/upload/c_fill,f_auto,q_auto:best/logo/logo_01_l5gpro.png" alt="" /> -->
+            <!-- <img src="https://res.cloudinary.com/de3in00p1/image/upload/c_fill,f_auto,q_auto:best/logo/logo_02_oriicw.png" alt="" /> -->
+            <!-- <img src="https://res.cloudinary.com/de3in00p1/image/upload/c_fill,f_auto,q_auto:best/logo/logo_04_wdyjhy.png" alt="" /> -->
+            <!-- <img src="https://res.cloudinary.com/de3in00p1/image/upload/c_fill,f_auto,q_auto:best/logo/logo_03_e38wmz.png" alt="" /> -->
+            <img src="https://res.cloudinary.com/de3in00p1/image/upload/c_fill,f_auto,q_auto:best/logo/logo_05_xbgw3x.png" alt="" />
+          </div>
+          <div class="w23/4">
+            <div class="ml-auto border-b transition  w-min border-gray-300">
+              <nav class="flex justify-center items-center text-center" aria-label="Tabs">
+                <router-link
+                  to="/"
+                  class="whitespace-nowrap py-4 w-max border-b-4 font-medium text-lg px-5"
+                  :class="activeClass[$route.path === '/' ? 'active' : 'default']"
+                >
+                  Monitoramento
+                </router-link>
+                <router-link
+                  to="/tracking"
+                  class="whitespace-nowrap transition py-4 w-max border-b-4 font-medium text-lg px-5"
+                  :class="activeClass[$route.path === '/tracking' ? 'active' : 'default']"
+                  aria-current="page"
+                >
+                  Consumo / Aplicativos
+                </router-link>
+              </nav>
+            </div>
           </div>
         </div>
       </div>
@@ -48,4 +56,16 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.app-logo {
+  width: 230px;
+  height: auto;
+  @media screen and (min-width: 1195px) {
+    width: 280px;
+  }
+}
+.router-link-active {
+  box-shadow: 0 30px 20px -15px #d2dce9;
+  font-weight: 600;
+}
+</style>

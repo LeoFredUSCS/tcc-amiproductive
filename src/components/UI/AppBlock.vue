@@ -4,9 +4,7 @@
     <div class="app-edit flex flex-col flex-grow">
       <div class="app-edit-info flex justify-between">
         <span class="font-bold">{{ app.name }}</span>
-        <TimeSpan>
-          {{ activityTimeSpan }}
-        </TimeSpan>
+        <TimeSpan :activity="app.created_at" />
       </div>
       <div class="app-edit-input" v-if="isTracked">
         <TagSelector :app="app" />
@@ -38,8 +36,13 @@
 import TimeSpan from './TimeSpan'
 import { EyeOffIcon, EyeIcon } from '@heroicons/vue/outline'
 import { mapMutations } from 'vuex'
+import { mapFields } from 'vuex-map-fields'
 import AppIcon from '@/components/UI/AppIcon'
 import TagSelector from '@/components/UI/TagSelector'
+import { formatedTimeSpan } from '../../plugins/utils.js'
+// import moment from 'moment'
+// import 'moment-duration-format'
+// import 'moment/locale/pt-br'
 
 export default {
   components: {
@@ -60,6 +63,7 @@ export default {
     }
   },
   methods: {
+    formatedTimeSpan,
     ...mapMutations({
       updateStatusField: 'processes/updateStatusField'
     }),
@@ -72,6 +76,7 @@ export default {
     }
   },
   computed: {
+    ...mapFields('global', ['started_at', 'myDayHasStartedAt']),
     isTracked() {
       if (!this.app) return false
       return this.app.status === 'tracking'

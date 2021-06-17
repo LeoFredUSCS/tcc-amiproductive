@@ -2,7 +2,9 @@ import { getField, updateField } from 'vuex-map-fields'
 
 function defaultState() {
   return {
-    started_at: null
+    started_at: null,
+    currentDay: new Date(),
+    myDayHasStartedAt: null
   }
 }
 export const state = defaultState
@@ -16,6 +18,9 @@ const mutations = {
 
   setInitialActivity(state, field) {
     state['started_at'] = field
+  },
+  initDay(state, field) {
+    state['myDayHasStartedAt'] = field
   }
 }
 

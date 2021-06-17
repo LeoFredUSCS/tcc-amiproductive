@@ -172,15 +172,18 @@ const mutations = {
   insertNewTag(state, tag) {
     state.tags.push(tag)
   },
-  relateApp(state, { app, tagName }) {
-    console.log('state', state)
-    console.log('app', app)
-    console.log('tagName', tagName)
+  updateAppsActivity(state, data) {
+    let tag = state.tags.find(tag => tag.tagName === data.tagName)
+    let app = tag.relatedApps.find(app => app.appId === data.appId)
+    app.appActivity = data.appActivity
   },
-  removeAppFromTag(state, { app, tagName }) {
-    console.log('state', state)
-    console.log('app', app)
-    console.log('tagName', tagName)
+  relateAppToTag(state, data) {
+    let targetTag = state.tags.find(tag => tag.tagName === data.tagName)
+    targetTag['relatedApps'].push(data.app)
+  },
+  unrelateAppFromTag(state, data) {
+    let targetTag = state.tags.find(tag => tag.tagName === data.tagName)
+    targetTag['relatedApps'] = targetTag['relatedApps'].filter(app => app.appId !== data.appId)
   }
 }
 
