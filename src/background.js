@@ -1,6 +1,6 @@
 'use strict'
 
-import { app, protocol, BrowserWindow, nativeImage, Menu, Tray } from 'electron'
+import { app, protocol, BrowserWindow, Menu, Tray } from 'electron'
 
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension from 'electron-devtools-installer'
@@ -16,8 +16,8 @@ protocol.registerSchemesAsPrivileged([{ scheme: 'app', privileges: { secure: tru
 
 async function createWindow() {
   mainWindow = new BrowserWindow({
-    minWidth: 1100,
-    maxWidth: 1300,
+    minWidth: 1132,
+    maxWidth: 1400,
     minHeight: 800,
     maxHeight: 1200,
     // frame: false,

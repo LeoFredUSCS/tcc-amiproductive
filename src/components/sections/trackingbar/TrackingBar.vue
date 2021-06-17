@@ -46,7 +46,7 @@ export default {
     orderedProcessesList() {
       let processes = this.processes
       let orderSide = this.orderBy === 'status' ? 'desc' : 'asc'
-      if (this.orderBy === 'status') return orderBy(processes, [e => e.status === 'tracking', 'name'], [orderSide])
+      if (this.orderBy === 'status') return orderBy(processes, [e => e.status === 'tracking', e => e.status === 'pending', 'name'], [orderSide])
       return orderBy(processes, [this.orderBy], [orderSide])
     }
   }

@@ -19,10 +19,7 @@ const state = () => ({
           appId: 'steam',
           appActivity: 123
         }
-      ],
-      activity: moment(moment())
-        .subtract(75, 'minutes')
-        .toDate()
+      ]
     },
     {
       tagName: 'Trabalho',
@@ -63,10 +60,7 @@ const state = () => ({
           appId: 'edge',
           appActivity: 15
         }
-      ],
-      activity: moment(moment())
-        .subtract(95, 'minutes')
-        .toDate()
+      ]
     },
     {
       tagName: 'Notícias',
@@ -75,10 +69,7 @@ const state = () => ({
           appId: 'chrome',
           appActivity: 379
         }
-      ],
-      activity: moment(moment())
-        .subtract(10, 'minutes')
-        .toDate()
+      ]
     },
     {
       tagName: 'Internet',
@@ -99,10 +90,7 @@ const state = () => ({
           appId: 'edge',
           appActivity: 15
         }
-      ],
-      activity: moment(moment())
-        .subtract(38, 'minutes')
-        .toDate()
+      ]
     },
     {
       tagName: 'Estudo',
@@ -135,10 +123,7 @@ const state = () => ({
           appId: 'postman',
           appActivity: 35
         }
-      ],
-      activity: moment(moment())
-        .subtract(35, 'minutes')
-        .toDate()
+      ]
     },
     {
       tagName: 'Mídias',
@@ -155,10 +140,7 @@ const state = () => ({
           appId: 'chrome',
           appActivity: 379
         }
-      ],
-      activity: moment(moment())
-        .subtract(46, 'minutes')
-        .toDate()
+      ]
     }
   ]
 })

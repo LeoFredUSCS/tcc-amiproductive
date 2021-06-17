@@ -38,12 +38,17 @@ export default {
   },
   data() {
     return {
-      selectedTags: null,
+      selectedTags: [],
       options: []
     }
   },
   beforeMount() {
     this.getTags()
+    this.tags.forEach(tag => {
+      if (tag.relatedApps.map(app => app.appId).includes(this.app.id)) {
+        this.selectedTags = [...this.selectedTags, tag.tagName]
+      }
+    })
   },
   computed: {
     ...mapFields('tags', ['tags']),
@@ -79,23 +84,7 @@ export default {
 </script>
 
 <style lang="scss">
-.multiselect-tag.is-user {
-  padding: 5px 8px;
-  border-radius: 22px;
-  background: #35495e;
-  margin: 3px 3px 8px;
-}
-
-.multiselect-tag.is-user img {
-  width: 18px;
-  border-radius: 50%;
-  height: 18px;
-  margin-right: 8px;
-  border: 2px solid #ffffffbf;
-}
-
-.multiselect-tag.is-user i:before {
-  color: #ffffff;
-  border-radius: 50%;
+.multiselect {
+  background-color: #ffffff;
 }
 </style>
