@@ -10,14 +10,14 @@
           type="text"
           name="new-tag"
           id="new_tag"
-          class="shadow-sm w-full border-gray-300 hover:border-primary rounded-md rounded-r-none border p-2"
+          class="shadow-sm rounded-lg w-full border-gray-300 hover:border-primary  rounded-r-none border py-2 px-4"
           placeholder="Digite a nova categoria"
           v-model.trim="newTag"
         />
       </div>
       <button
         type="submit"
-        class="w-full inline-flex items-center justify-center p-2 px-3 h-full border border-primary hover:bg-primary-darker shadow-lg trandition font-medium rounded-md rounded-l-none text-white bg-primary-dark sm:mt-0 sm:w-auto"
+        class="w-full inline-flex items-center justify-center p-2 px-3 h-full border border-primary hover:bg-primary-darker shadow-lg trandition font-medium rounded-lg rounded-l-none text-white bg-primary-dark sm:mt-0 sm:w-auto"
       >
         Adicionar
       </button>

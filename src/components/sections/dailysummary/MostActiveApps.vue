@@ -22,7 +22,7 @@ export default {
     ...mapFields('processes', ['processes']),
 
     getMostActiveApps() {
-      let orderedProcesses = orderBy(this.processes, ['created_at', 'desc'])
+      let orderedProcesses = orderBy(this.processes, ['created_at', 'desc']).filter(process => process.status === 'tracking')
       return orderedProcesses.slice(0, 3)
     }
   }

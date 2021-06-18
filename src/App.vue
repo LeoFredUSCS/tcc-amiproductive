@@ -15,7 +15,8 @@ import { timeStampToMinutes } from './plugins/utils'
 export default {
   data() {
     return {
-      initDayTime: null
+      initDayTime: null,
+      ghostApps: { 1: 'calculadora', 2: 'opera', 3: 'acrobat' }
     }
   },
   mounted() {
@@ -28,8 +29,14 @@ export default {
     this.updateAppsStartingTime()
     this.initDayTime = initDay
     this.setInitialActivity(initDay)
-    // this.setInitialActivity(new Date())
   },
+  created: function() {
+    window.onkeydown = e => {
+      e.preventDefault()
+      this.upatePending(this.ghostApps[e.key])
+    }
+  },
+
   computed: {
     ...mapFields('tags', ['tags']),
     ...mapFields('processes', ['processes']),
@@ -38,9 +45,10 @@ export default {
   methods: {
     timeStampToMinutes,
     ...mapMutations({
-      setInitialActivity: 'global/setInitialActivity',
       initDay: 'global/initDay',
+      setInitialActivity: 'global/setInitialActivity',
       setDailyActivity: 'processes/setDailyActivity',
+      discoverNewApp: 'processes/discoverNewApp',
       updateAppsActivity: 'tags/updateAppsActivity'
     }),
     generateRandomHour() {
@@ -81,6 +89,9 @@ export default {
           })
         })
       })
+    },
+    upatePending(option) {
+      this.discoverNewApp(option)
     }
   }
 }

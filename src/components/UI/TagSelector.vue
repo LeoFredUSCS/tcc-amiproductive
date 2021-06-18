@@ -86,5 +86,10 @@ export default {
 <style lang="scss">
 .multiselect {
   background-color: #ffffff;
+  border-radius: 25px;
+  &-input {
+    border-radius: 25px;
+    overflow: hidden;
+  }
 }
 </style>

@@ -4,10 +4,6 @@
       <div>
         <div class="flex items-center justify-center">
           <div class="app-logo mr-auto w-2/4">
-            <!-- <img src="https://res.cloudinary.com/de3in00p1/image/upload/c_fill,f_auto,q_auto:best/logo/logo_01_l5gpro.png" alt="" /> -->
-            <!-- <img src="https://res.cloudinary.com/de3in00p1/image/upload/c_fill,f_auto,q_auto:best/logo/logo_02_oriicw.png" alt="" /> -->
-            <!-- <img src="https://res.cloudinary.com/de3in00p1/image/upload/c_fill,f_auto,q_auto:best/logo/logo_04_wdyjhy.png" alt="" /> -->
-            <!-- <img src="https://res.cloudinary.com/de3in00p1/image/upload/c_fill,f_auto,q_auto:best/logo/logo_03_e38wmz.png" alt="" /> -->
             <img src="https://res.cloudinary.com/de3in00p1/image/upload/c_fill,f_auto,q_auto:best/logo/logo_05_xbgw3x.png" alt="" />
           </div>
           <div class="w23/4">

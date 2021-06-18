@@ -5,13 +5,13 @@
     </h3>
     <nav class="-mb-px flex justify-between" aria-label="Tabs">
       <div :class="[baseClass, { selected: orderBy === 'name' }]" @click="orderBy = 'name'">
-        <span class="label">Nome</span>
+        <span class="label">Por Nome</span>
       </div>
       <div :class="[baseClass, { selected: orderBy === 'created_at' }]" @click="orderBy = 'created_at'">
-        <span class="label">Atividade</span>
+        <span class="label">Por Tempo ativo</span>
       </div>
       <div :class="[baseClass, { selected: orderBy === 'status' }]" @click="orderBy = 'status'">
-        <span class="label">Estado</span>
+        <span class="label">Por Estado</span>
       </div>
     </nav>
   </div>
@@ -39,5 +39,6 @@ export default {
   border-bottom: 2px solid $primary;
   color: $primary;
   text-shadow: 0 0 1px;
+  box-shadow: 0 20px 20px -10px #d2dce9;
 }
 </style>

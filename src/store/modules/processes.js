@@ -1,4 +1,7 @@
 import { getField, updateField } from 'vuex-map-fields'
+import moment from 'moment'
+import 'moment-duration-format'
+import 'moment/locale/pt-br'
 
 function defaultState() {
   return {
@@ -128,6 +131,37 @@ const mutations = {
     let process = state.processes.find(proc => proc.id === app.id)
     process.created_at = app.started_at
   },
+  discoverNewApp(state, app) {
+    if (state.processes.find(proc => proc.id === app)) return
+
+    if (app === 'acrobat') {
+      state.processes.push({
+        id: 'acrobat',
+        name: 'Adobe Acrobat DC',
+        description: 'Processo do Adobe Acrobat DC',
+        status: 'pending',
+        created_at: moment().format()
+      })
+    }
+    if (app === 'opera') {
+      state.processes.push({
+        id: 'opera',
+        name: 'Navegador Opera',
+        description: 'Processo do Navegador Opera',
+        status: 'pending',
+        created_at: moment().format()
+      })
+    }
+    if (app === 'calculadora') {
+      state.processes.push({
+        id: 'calculadora',
+        name: 'Calculadora',
+        description: 'Processo do Calculadora',
+        status: 'pending',
+        created_at: moment().format()
+      })
+    }
+  }
 }
 
 // actions

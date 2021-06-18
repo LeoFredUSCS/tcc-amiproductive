@@ -28,9 +28,9 @@
       </div>
       <div class="flex absolute right-7" v-if="shouldExpand">
         <div
-          class="flex border border-primary rounded-r-sm p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer"
+          class="flex border border-accent rounded-l-full p-1 px-2 hover:bg-accent hover:text-white transition cursor-pointer"
           :class="{
-            'bg-primary text-white font-bold': isIgnored
+            'bg-accent text-white font-bold': isIgnored
           }"
           @click="defineAppState('ignored')"
         >
@@ -38,7 +38,7 @@
           <span class="text-xs">Ignorar</span>
         </div>
         <div
-          class="flex border border-primary rounded-l-sm p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer"
+          class="flex border border-primary rounded-r-full p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer"
           :class="{
             'bg-primary text-white font-bold': isTracked,
             undefined: undefinedState

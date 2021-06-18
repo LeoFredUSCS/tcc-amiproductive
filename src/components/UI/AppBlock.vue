@@ -6,20 +6,20 @@
         <span class="font-bold">{{ app.name }}</span>
         <TimeSpan :activity="app.created_at" />
       </div>
-      <div class="app-edit-input" v-if="isTracked">
+      <div v-if="isTracked" class="app-edit-input">
         <TagSelector :app="app" />
       </div>
-      <div class="app-user-actions flex items-center justify-between mt-2 font-bold text-xs" v-if="isPending">
+      <div v-if="isPending" class="app-user-actions flex items-center justify-between mt-2 font-bold text-xs">
         <div class="flex">
           <div
-            class="flex border border-primary rounded-sm p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer rounded-r-sm"
+            class="flex border border-accent p-1 px-2 hover:bg-accent hover:text-white transition cursor-pointer rounded-l-full"
             @click="defineAppState('ignored')"
           >
             <EyeOffIcon class="w-4 mr-1" />
             <span class="">Ignorar</span>
           </div>
           <div
-            class="flex border border-primary rounded-sm p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer rounded-l-sm"
+            class="flex border border-primary p-1 px-2 hover:bg-primary hover:text-white transition cursor-pointer rounded-r-full"
             @click="defineAppState('tracking')"
           >
             <EyeIcon class="w-4 mr-1" />
@@ -40,9 +40,6 @@ import { mapFields } from 'vuex-map-fields'
 import AppIcon from '@/components/UI/AppIcon'
 import TagSelector from '@/components/UI/TagSelector'
 import { formatedTimeSpan } from '../../plugins/utils.js'
-// import moment from 'moment'
-// import 'moment-duration-format'
-// import 'moment/locale/pt-br'
 
 export default {
   components: {
