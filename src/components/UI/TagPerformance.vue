@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col items-center mt-auto list-complete-item">
+  <div class="flex flex-col items-center mt-auto list-complete-item transition-all">
     <div class="bar-wrapper flex flex-col justify-end items-center mb-4">
-      <div class="relative percentage-bar flex rounded-full bg-primary-dark" :style="{ 'max-height': barSize.toFixed(2) + '%' }">
-        <TimeSpan :activity="tag.activity.toString()" :is-total-activity="true" class="timespan mb-4 absolute bottom-full w-max" />
+      <div class="relative percentage-bar flex rounded-full bg-primary-dark transition-all duration-1000" :style="{ 'max-height': barSize.toFixed(2) + '%' }">
+        <TimeSpan :activity="tag.tagActivity().toString()" :is-total-activity="true" class="timespan mb-4 absolute bottom-full w-max" />
       </div>
     </div>
     <TagComponent>
@@ -19,11 +19,17 @@ import TagComponent from './Tag'
 export default {
   props: {
     tag: { type: Object, default: () => null },
-    barSize: { type: Number, default: () => 100 }
+    biggestActivity: { type: Number, default: () => 100 },
+    indexPosition: { type: Number, default: () => null }
   },
   components: {
     TimeSpan,
     TagComponent
+  },
+  computed: {
+    barSize() {
+      return (this.tag.tagActivity() / this.biggestActivity) * 100
+    }
   },
   methods: {
     minutesToTimespan

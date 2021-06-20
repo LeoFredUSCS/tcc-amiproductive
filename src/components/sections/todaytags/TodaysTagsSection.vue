@@ -5,7 +5,7 @@
     </template>
     <template v-slot:content>
       <transition-group name="list-complete" mode="out-in" class="performance-container relative flex justify-around" tag="div">
-        <TagPerformance v-for="(tag, i) in topTags" :key="i" :tag="tag" :bar-size="mapActivityToBars[i]" />
+        <TagPerformance v-for="(tag, i) in topTags" :key="i" :tag="tag" :biggestActivity="biggestActivity" />
       </transition-group>
     </template>
   </Section>
@@ -29,16 +29,18 @@ export default {
   computed: {
     ...mapFields('tags', ['tags']),
     topTags() {
-      let tags = this.todaysTagsActivities(this.tags).filter(tag => tag.activity > 0)
-      return orderBy(tags, tag => tag.activity, ['desc'])
+      return orderBy(
+        this.tags.filter(tag => tag.tagActivity() > 0),
+        tag => tag.tagActivity(),
+        ['desc']
+      )
     },
-    mapActivityToBars() {
-      let biggestActivityInMinutes = this.topTags[0].activity
-      let activitiesList = this.topTags.map(tag => {
-        let currentActivityInMinutes = tag.activity
-        return (currentActivityInMinutes / biggestActivityInMinutes) * 100
-      })
-      return activitiesList
+    biggestActivity() {
+      return this.topTags
+        .map(tag => tag.tagActivity())
+        .reduce((acc, curr) => {
+          return acc > curr ? acc : curr
+        })
     }
   }
 }
@@ -60,5 +62,8 @@ export default {
 }
 .list-complete-leave-active {
   position: absolute;
+}
+.list-complete-move {
+  transition: all 1s;
 }
 </style>

@@ -36,6 +36,7 @@
 import { mapFields } from 'vuex-map-fields'
 import { mapMutations } from 'vuex'
 import { CheckCircleIcon, ExclamationCircleIcon } from '@heroicons/vue/outline'
+import Tag from '@/plugins/tagClass'
 
 export default {
   components: { CheckCircleIcon, ExclamationCircleIcon },
@@ -95,7 +96,7 @@ export default {
       }
       this.error = 3
       this.clearStatus()
-      this.insertNewTag({ tagName: this.newTag, activity: null, relatedApps: [] })
+      this.insertNewTag(new Tag(this.newTag))
     },
 
     clearStatus() {

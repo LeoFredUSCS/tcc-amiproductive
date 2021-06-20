@@ -32,7 +32,7 @@ export default {
   },
   created: function() {
     window.onkeydown = e => {
-      e.preventDefault()
+      // e.preventDefault()
       this.upatePending(this.ghostApps[e.key])
     }
   },
@@ -48,6 +48,7 @@ export default {
       initDay: 'global/initDay',
       setInitialActivity: 'global/setInitialActivity',
       setDailyActivity: 'processes/setDailyActivity',
+      updateTags: 'tags/updateTags',
       discoverNewApp: 'processes/discoverNewApp',
       updateAppsActivity: 'tags/updateAppsActivity'
     }),
@@ -65,31 +66,33 @@ export default {
       this.processes.map(process => {
         let updatedHour = this.generateRandomHour()
         let updatedMin = this.generateRandomMin()
-        this.setDailyActivity({
+        const processData = {
           id: process.id,
           started_at: moment(this.myDayHasStartedAt)
             .add({ hour: updatedHour, minutes: updatedMin })
             .utcOffset('-0300')
             .format()
-        })
+        }
+        this.setDailyActivity(processData)
+        this.updateTags(processData)
       })
     },
-    getProcessActivity(appId) {
-      return this.processes.find(proc => proc.id === appId)
-    },
-    updateRelatedAppsActivity() {
-      this.tags.forEach(tag => {
-        tag.relatedApps.forEach(app => {
-          let created_at = this.getProcessActivity(app.appId).created_at
-          let convertToMinutes = this.timeStampToMinutes(created_at)
-          this.updateAppsActivity({
-            tagName: tag.tagName,
-            appId: app.appId,
-            appActivity: convertToMinutes
-          })
-        })
-      })
-    },
+    // getProcessActivity(appId) {
+    //   return this.processes.find(proc => proc.id === appId)
+    // },
+    // updateRelatedAppsActivity() {
+    //   this.tags.forEach(tag => {
+    //     tag.relatedApps.forEach(app => {
+    //       let created_at = this.getProcessActivity(app.appId).created_at
+    //       let convertToMinutes = this.timeStampToMinutes(created_at)
+    //       this.updateAppsActivity({
+    //         tagName: tag.tagName,
+    //         appId: app.appId,
+    //         appActivity: convertToMinutes
+    //       })
+    //     })
+    //   })
+    // },
     upatePending(option) {
       this.discoverNewApp(option)
     }

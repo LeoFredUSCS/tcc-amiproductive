@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     ...mapMutations({
-      relateAppToTagToTag: 'tags/relateAppToTag',
+      relateAppToTag: 'tags/relateAppToTag',
       unrelateAppFromTag: 'tags/unrelateAppFromTag'
     }),
     getTags() {
@@ -67,9 +67,9 @@ export default {
       })
     },
     addTag(option) {
-      this.relateAppToTagToTag({
-        app: { appId: this.app.id, appActivity: timeStampToMinutes(this.app.created_at) },
-        tagName: option
+      this.relateAppToTag({
+        tagName: option,
+        app: { appId: this.app.id, appActivity: timeStampToMinutes(this.app.created_at) }
       })
     },
     removeTag(option) {
