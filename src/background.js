@@ -25,7 +25,8 @@ async function createWindow() {
     movable: true,
     title: 'Charlinhos Tasks',
     webPreferences: {
-      contextIsolation: true
+      contextIsolation: true,
+      nodeIntegration: true
     }
   })
 

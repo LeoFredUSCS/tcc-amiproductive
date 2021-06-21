@@ -3,7 +3,8 @@ module.exports = {
     electronBuilder: {
       builderOptions: {
         productName: 'C-Tasks'
-      }
+      },
+      nodeModulesPaths: ['./node_modules']
     }
   },
   css: {

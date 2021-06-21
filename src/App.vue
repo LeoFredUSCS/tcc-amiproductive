@@ -16,7 +16,20 @@ export default {
   data() {
     return {
       initDayTime: null,
-      ghostApps: { 1: 'calculadora', 2: 'opera', 3: 'acrobat' }
+      ghostApps: {
+        1: {
+          id: 'calculadora',
+          name: 'Adobe Acrobat DC'
+        },
+        2: {
+          id: 'opera',
+          name: 'Navegador Opera'
+        },
+        3: {
+          id: 'acrobat',
+          name: 'Calculadora'
+        }
+      }
     }
   },
   mounted() {
@@ -33,7 +46,7 @@ export default {
   created: function() {
     window.onkeydown = e => {
       // e.preventDefault()
-      this.upatePending(this.ghostApps[e.key])
+      this.ghostApps[e.key] && this.upatePending(this.ghostApps[e.key])
     }
   },
 
@@ -94,7 +107,8 @@ export default {
     //   })
     // },
     upatePending(option) {
-      this.discoverNewApp(option)
+      this.discoverNewApp(option.id)
+      new Notification(`Novo Aplicativo Identificado`, { body: option.name }).onclick = () => window.open()
     }
   }
 }
