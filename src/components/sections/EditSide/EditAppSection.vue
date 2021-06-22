@@ -1,5 +1,5 @@
 <template>
-  <Section class="edit-app-container h-auto overflow-y-auto" :class="{ 'flex-grow': trackingApps.length > 4 }">
+  <Section class="edit-app-container flex-grow" :class="{ 'content-min h-full overflow-y-auto': trackingApps.length > 4, 'has-content': trackingApps.length }">
     <template v-slot:title>
       <h2>Categorize seus aplicativos</h2>
     </template>
@@ -57,7 +57,12 @@ export default {
 
 <style lang="scss" scoped>
 .edit-app-container {
+  &.content-min {
+    min-height: 500px;
+  }
+
   @include scroll-bar(5px);
+
   .tacking-btn {
     .arrow-icon {
       transition: all ease-in-out 100ms;

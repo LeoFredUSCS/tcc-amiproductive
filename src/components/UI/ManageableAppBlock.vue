@@ -1,8 +1,18 @@
 <template>
-  <li class="app mb-6 grid grid-cols-2 grid-flow-col">
-    <div class="flex items-center col-start-1 col-end-2 relative">
+  <li
+    class="app p-2 rounded-lg mb-2 transition duration-700 grid grid-cols-2 grid-flow-col"
+    :class="{
+      'bg-gray-100': isIgnored
+    }"
+  >
+    <div
+      class="flex transition duration-700 items-center col-start-1 col-end-2 relative"
+      :class="{
+        'opacity-60 bg-grey-100': isIgnored
+      }"
+    >
       <div
-        class="app-status-marker h-full w-1 mr-2 rounded-full transition absolute"
+        class="app-status-marker h-full w-1 rounded-full transition duration-700 absolute"
         :class="{
           'bg-accent': isTracked,
           'bg-gray-300': !isTracked
@@ -19,9 +29,8 @@
         </div>
       </div>
     </div>
-    <div class="app-user-actions flex items-center justify-end mt-2 font-bold col-start-2 col-end-3 relative">
+    <div class="app-user-actions flex items-center justify-end font-bold col-start-2 col-end-3 relative">
       <div class="flex" v-if="!shouldExpand">
-        <!-- <EyeOffIcon class="w-5 h-5 mr-4" v-if="!isTracked" /> -->
         <EyeIcon class="w-5 h-5 mr-4" v-if="isTracked" />
         <EyeOffIcon class="w-5 h-5 mr-4" v-if="isIgnored" />
         <span class=" mr-2 flex items-center text-sm text-gray-400" v-if="isPending">Defina este aplicativo</span>

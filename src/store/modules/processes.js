@@ -10,8 +10,8 @@ function defaultState() {
       {
         id: 'edge',
         name: 'Microsoft Edge',
-        description: 'Processo do Windows Explorer',
-        status: 'tracking',
+        description: 'Processo do Microsoft Edge',
+        status: 'ignored',
         created_at: '2021-06-17T08:00:00-0300'
       },
       {
@@ -31,84 +31,98 @@ function defaultState() {
       {
         id: 'notepad',
         name: 'Notepad++',
-        description: 'Processo do Windows Explorer',
+        description: 'Processo do Notepad++',
         status: 'pending',
         created_at: '2021-06-17T08:00:00-0300'
       },
       {
         id: 'notion',
         name: 'Notion',
-        description: 'Processo do Google Chrome',
-        status: 'ignored',
+        description: 'Processo do Notion',
+        status: 'pending',
         created_at: '2021-06-17T10:27:53-0300'
       },
       {
         id: 'slack',
         name: 'Slack',
-        description: 'Processo do Discord',
-        status: 'pending',
+        description: 'Processo do Slack',
+        status: 'ignored',
         created_at: '2021-06-17T00:27:53-0300'
       },
       {
         id: 'spotify',
         name: 'Spotify',
-        description: 'Processo do Windows Explorer',
-        status: 'tracking',
+        description: 'Processo do Spotify',
+        status: 'ignored',
         created_at: '2021-06-17T08:00:00-0300'
       },
       {
         id: 'vlc',
         name: 'VLC Media Player',
-        description: 'Processo do Windows Explorer',
-        status: 'tracking',
+        description: 'Processo do VLC Media Player',
+        status: 'ignored',
         created_at: '2021-06-17T08:00:00-0300'
       },
       {
         id: 'epic',
         name: 'EpicGamesLauncher',
-        description: 'Processo do Windows Explorer',
+        description: 'Processo do EpicGamesLauncher',
         status: 'tracking',
         created_at: '2021-06-17T08:00:00-0300'
       },
       {
         id: 'vscode',
         name: 'Visual Studio Code',
-        description: 'Processo do Google Chrome',
-        status: 'ignored',
+        description: 'Processo do Visual Studio Code',
+        status: 'tracking',
+        created_at: '2021-06-17T07:27:53-0300'
+      },
+      {
+        id: 'w_terminal',
+        name: 'Windows Terminal',
+        description: 'Processo do Windows Terminal',
+        status: 'pending',
+        created_at: '2021-06-17T07:27:53-0300'
+      },
+      {
+        id: 'hyper',
+        name: 'Hyper',
+        description: 'Processo do Hyper',
+        status: 'tracking',
         created_at: '2021-06-17T07:27:53-0300'
       },
       {
         id: 'whatsapp',
         name: 'Whatsapp',
-        description: 'Processo do Discord',
-        status: 'pending',
+        description: 'Processo do Whatsapp',
+        status: 'ignored',
         created_at: '2021-06-17T23:27:53-0300'
       },
       {
         id: 'figma',
         name: 'Figma',
-        description: 'Processo do Windows Explorer',
+        description: 'Processo do Figma',
         status: 'tracking',
         created_at: '2021-06-17T08:00:00-0300'
       },
       {
         id: 'firefox',
         name: 'Firefox',
-        description: 'Processo do Google Chrome',
+        description: 'Processo do Firefox',
         status: 'ignored',
         created_at: '2021-06-17T17:27:53-0300'
       },
       {
         id: 'steam',
         name: 'Steam',
-        description: 'Processo do Discord',
+        description: 'Processo do Steam',
         status: 'pending',
         created_at: '2021-06-17T10:27:53-0300'
       },
       {
         id: 'postman',
         name: 'Postman',
-        description: 'Processo do Discord',
+        description: 'Processo do Postman',
         status: 'pending',
         created_at: '2021-06-17T11:27:53-0300'
       }

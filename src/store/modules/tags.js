@@ -10,26 +10,14 @@ const receivedTags = [
     tagName: 'Jogos',
     relatedApps: [
       {
-        appId: 'discord',
-        appActivity: 250
-      },
-      {
         appId: 'epic',
         appActivity: 65
-      },
-      {
-        appId: 'steam',
-        appActivity: 123
       }
     ]
   },
   {
     tagName: 'Trabalho',
     relatedApps: [
-      {
-        appId: 'notion',
-        appActivity: 65
-      },
       {
         appId: 'slack',
         appActivity: 35
@@ -39,25 +27,17 @@ const receivedTags = [
         appActivity: 450
       },
       {
-        appId: 'firefox',
-        appActivity: 4
+        appId: 'hyper',
+        appActivity: 175
       },
       {
-        appId: 'postman',
-        appActivity: 35
+        appId: 'firefox',
+        appActivity: 4
       },
       {
         appId: 'figma',
         appActivity: 35
       },
-      {
-        appId: 'notepad',
-        appActivity: 35
-      },
-      {
-        appId: 'edge',
-        appActivity: 15
-      }
     ]
   },
   {
@@ -66,6 +46,10 @@ const receivedTags = [
       {
         appId: 'chrome',
         appActivity: 379
+      },
+      {
+        appId: 'edge',
+        appActivity: 15
       }
     ]
   },
@@ -90,32 +74,12 @@ const receivedTags = [
     tagName: 'Estudo',
     relatedApps: [
       {
-        appId: 'discord',
-        appActivity: 250
-      },
-      {
-        appId: 'notepad',
-        appActivity: 35
-      },
-      {
-        appId: 'notion',
-        appActivity: 65
+        appId: 'hyper',
+        appActivity: 175
       },
       {
         appId: 'vscode',
         appActivity: 450
-      },
-      {
-        appId: 'whatsapp',
-        appActivity: 92
-      },
-      {
-        appId: 'figma',
-        appActivity: 35
-      },
-      {
-        appId: 'postman',
-        appActivity: 35
       }
     ]
   },

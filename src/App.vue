@@ -19,7 +19,7 @@ export default {
       ghostApps: {
         1: {
           id: 'calculadora',
-          name: 'Adobe Acrobat DC'
+          name: 'Calculadora'
         },
         2: {
           id: 'opera',
@@ -27,7 +27,7 @@ export default {
         },
         3: {
           id: 'acrobat',
-          name: 'Calculadora'
+          name: 'Adobe Acrobat DC'
         }
       }
     }
@@ -46,7 +46,7 @@ export default {
   created: function() {
     window.onkeydown = e => {
       // e.preventDefault()
-      this.ghostApps[e.key] && this.upatePending(this.ghostApps[e.key])
+      this.ghostApps[e.key] && this.updatePending(this.ghostApps[e.key])
     }
   },
 
@@ -60,9 +60,9 @@ export default {
     ...mapMutations({
       initDay: 'global/initDay',
       setInitialActivity: 'global/setInitialActivity',
+      discoverNewApp: 'processes/discoverNewApp',
       setDailyActivity: 'processes/setDailyActivity',
       updateTags: 'tags/updateTags',
-      discoverNewApp: 'processes/discoverNewApp',
       updateAppsActivity: 'tags/updateAppsActivity'
     }),
     generateRandomHour() {
@@ -90,7 +90,7 @@ export default {
         this.updateTags(processData)
       })
     },
-    upatePending(option) {
+    updatePending(option) {
       this.discoverNewApp(option.id)
       new Notification(`Novo Aplicativo Identificado`, { body: option.name }).onclick = () => window.open()
     }

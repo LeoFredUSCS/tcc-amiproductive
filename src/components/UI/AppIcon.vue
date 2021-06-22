@@ -1,5 +1,5 @@
 <template>
-  <div class="icon app-icon bg-white p-1 rounded-full overflow-hidden" :class="isHighlighted ? ' w-12 h-12' : 'w-10 h-10 mr-3'">
+  <div class="icon app-icon bg-white p-2 rounded-full overflow-hidden" :class="isHighlighted ? ' w-14 h-14' : 'w-12 h-12 mr-3'">
     <img
       class="app-icon-image w-full h-full "
       :src="`https://res.cloudinary.com/de3in00p1/image/upload/ar_1:1,c_thumb,q_auto:good,w_150/icons/${appIconSlug}.jpg`"
