@@ -12,6 +12,7 @@
     :options="options"
     @click="getTags()"
     @select="addTag"
+    @clear="clear(this.selectedTags)"
   >
     <template v-slot:tag="{ option }">
       <Tag :dismissable="true" @dismiss="removeTag(option)">
@@ -78,6 +79,9 @@ export default {
         appId: this.app.id,
         tagName: option.name
       })
+    },
+    clear(tags) {
+      tags.forEach(name => this.removeTag({ name }))
     }
   }
 }
