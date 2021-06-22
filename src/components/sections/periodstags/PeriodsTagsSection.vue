@@ -30,18 +30,6 @@
                   <span class="text-white text-sm font-bold">{{ tag.percentage }}%</span>
                 </div>
               </div>
-              <!-- <div class="share-wrapper second-tag flex flex-col items-start ">
-                <Tag :alt-color="'primary-light'">Tag 2</Tag>
-                <div class="bar rounded-full flex items-center justify-center">
-                  <span class="text-white text-sm font-bold">33%</span>
-                </div>
-              </div>
-              <div class="share-wrapper others-tag flex flex-col items-center">
-                <Tag>Outros</Tag>
-                <div class="bar rounded-full flex items-center justify-center">
-                  <span class="text-white text-sm font-bold">33%</span>
-                </div>
-              </div> -->
             </div>
           </div>
         </div>
@@ -59,11 +47,6 @@ export default {
   components: {
     Section,
     Tag
-  },
-  data() {
-    return {
-      // daysOfTheWeek: ['Domingo', 'Segunda-Feira', 'Terça-Feira', 'Quarta-Feira', 'Quinta-Feira', 'Sexta-Feira', 'Sábado']
-    }
   },
   computed: {
     ...mapFields('tags', ['daysOfTheWeek']),
