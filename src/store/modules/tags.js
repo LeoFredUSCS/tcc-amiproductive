@@ -140,7 +140,159 @@ receivedTags.forEach(tag => {
 })
 
 const state = () => ({
-  tags: tagList
+  tags: tagList,
+  daysOfTheWeek: [
+    {
+      day: 'Domingo',
+      dominantTags: [
+        {
+          tagName: 'Jogos',
+          percentage: 62,
+          isAggregate: false
+        },
+        {
+          tagName: 'Internet',
+          percentage: 21,
+          isAggregate: false
+        },
+        {
+          tagName: 'Outros',
+          percentage: 17,
+          isAggregate: true
+        }
+      ]
+    },
+    {
+      day: 'Segunda-Feira',
+      dominantTags: [
+        {
+          tagName: 'Trabalho',
+          percentage: 47,
+          isAggregate: false
+        },
+        {
+          tagName: 'Estudo',
+          percentage: 35,
+          isAggregate: false
+        },
+        {
+          tagName: 'Outros',
+          percentage: 18,
+          isAggregate: true
+        }
+      ]
+    },
+    {
+      day: 'Terça-Feira',
+      dominantTags: [
+        {
+          tagName: 'Trabalho',
+          percentage: 53,
+          isAggregate: false
+        },
+        {
+          tagName: 'Estudo',
+          percentage: 38,
+          isAggregate: false
+        },
+        {
+          tagName: 'Outros',
+          percentage: 9,
+          isAggregate: true
+        }
+      ]
+    },
+    {
+      day: 'Quarta-Feira',
+      dominantTags: [
+        {
+          tagName: 'Trabalho',
+          percentage: 62,
+          isAggregate: false
+        },
+        {
+          tagName: 'Internet',
+          percentage: 33,
+          isAggregate: false
+        },
+        {
+          tagName: 'Outros',
+          percentage: 5,
+          isAggregate: true
+        }
+      ]
+    },
+    {
+      day: 'Quinta-Feira',
+      dominantTags: [
+        {
+          tagName: 'Trabalho',
+          percentage: 36,
+          isAggregate: false
+        },
+        {
+          tagName: 'Internet',
+          percentage: 21,
+          isAggregate: false
+        },
+        {
+          tagName: 'Outros',
+          percentage: 43,
+          isAggregate: true
+        }
+      ]
+    },
+    {
+      day: 'Sexta-Feira',
+      dominantTags: [
+        {
+          tagName: 'Trabalho',
+          percentage: 56,
+          isAggregate: false
+        },
+        {
+          tagName: 'Internet',
+          percentage: 20,
+          isAggregate: false
+        },
+        {
+          tagName: 'Outros',
+          percentage: 24,
+          isAggregate: true
+        }
+      ]
+    },
+    {
+      day: 'Sábado',
+      dominantTags: [
+        {
+          tagName: 'Jogos',
+          percentage: 27,
+          isAggregate: false
+        },
+        {
+          tagName: 'Internet',
+          percentage: 10,
+          isAggregate: false
+        },
+        {
+          tagName: 'Estudo',
+          percentage: 18,
+          isAggregate: false
+        },
+        {
+          tagName: 'Notícias',
+          percentage: 17,
+          isAggregate: false
+        },
+        {
+          tagName: 'Mídias',
+          percentage: 28,
+          isAggregate: false
+        }
+      ]
+    }
+  ]
 })
 
 // getters

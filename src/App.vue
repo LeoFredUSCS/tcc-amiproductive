@@ -90,22 +90,6 @@ export default {
         this.updateTags(processData)
       })
     },
-    // getProcessActivity(appId) {
-    //   return this.processes.find(proc => proc.id === appId)
-    // },
-    // updateRelatedAppsActivity() {
-    //   this.tags.forEach(tag => {
-    //     tag.relatedApps.forEach(app => {
-    //       let created_at = this.getProcessActivity(app.appId).created_at
-    //       let convertToMinutes = this.timeStampToMinutes(created_at)
-    //       this.updateAppsActivity({
-    //         tagName: tag.tagName,
-    //         appId: app.appId,
-    //         appActivity: convertToMinutes
-    //       })
-    //     })
-    //   })
-    // },
     upatePending(option) {
       this.discoverNewApp(option.id)
       new Notification(`Novo Aplicativo Identificado`, { body: option.name }).onclick = () => window.open()
