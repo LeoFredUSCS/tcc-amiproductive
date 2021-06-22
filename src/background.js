@@ -75,7 +75,7 @@ app.on('ready', async () => {
       console.error('Vue Devtools failed to install:', e.toString())
     }
   }
-  tray = new Tray('./public/favicon.ico')
+  tray = new Tray('./public/app-icon.ico')
   const contextMenu = Menu.buildFromTemplate([
     {
       label: 'Painel',
