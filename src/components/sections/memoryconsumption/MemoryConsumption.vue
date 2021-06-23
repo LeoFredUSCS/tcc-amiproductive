@@ -4,8 +4,25 @@
       <h2>Consumo de Memória</h2>
     </template>
     <template v-slot:content>
-      <div class="flex justify-around">
-        <DoughnutChart :height="300" :chartData="chartData" />
+      <div class="flex items-center justify-around">
+        <div class="chart-wrapper w-3/5">
+          <DoughnutChart :height="300" :chartData="chartData" />
+        </div>
+        <ul class="tags-container w-2/5">
+          <li class="tag-item my-5 items-center grid grid-cols-10" v-for="(tag, i) in chartData.labels" :key="i">
+            <span class="tag-title font-bold col-span-2">{{ tag }}</span>
+            <div class="col-span-8 flex items-center">
+              <div
+                class="tag-percentage rounded-full col-span-8 transition duration-500"
+                :style="{
+                  backgroundColor: chartData.datasets[0].backgroundColor[i],
+                  maxWidth: chartData.datasets[0].data[i] * 2 + '%'
+                }"
+              />
+              <span class="text-sm ml-2 text-gray-400 font-bold percentage">{{ chartData.datasets[0].data[i] }}%</span>
+            </div>
+          </li>
+        </ul>
       </div>
     </template>
   </Section>
@@ -32,7 +49,7 @@ export default {
         datasets: [
           {
             data: [],
-            backgroundColor: ['#f87979', '#f87909']
+            backgroundColor: ['#47b5ed', '#F0635A', '#36E6AD', '#0196e3', '#F1A428', '#10EAC2']
           }
         ]
       },
@@ -71,7 +88,7 @@ export default {
         this.chartData.labels[i] = process.process_name
         const value = process.memmory.percentage * 100
         total += value
-        this.chartData.datasets[0].data[i] = value
+        this.chartData.datasets[0].data[i] = value.toFixed(2)
       })
 
       if (total < 100) {
@@ -83,4 +100,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.tag-percentage {
+  height: 12px;
+  width: 100%;
+  max-width: 0;
+}
+</style>
