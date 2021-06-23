@@ -92,7 +92,10 @@ export default {
     },
     updatePending(option) {
       this.discoverNewApp(option.id)
-      new Notification(`Novo Aplicativo Identificado`, { body: option.name }).onclick = () => window.open()
+      new Notification(`Novo Aplicativo Identificado`, {
+        body: option.name,
+        icon: 'https://res.cloudinary.com/de3in00p1/image/upload/icons/app-icon.png'
+      }).onclick = () => window.open()
     }
   }
 }

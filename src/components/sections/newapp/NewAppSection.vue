@@ -1,5 +1,5 @@
 <template>
-  <Section class="new-app-section flex-shrink" :class="{ 'has-content overflow-y-auto': pendingApps.length }">
+  <Section class="new-app-section flex-shrink" :class="{ 'has-content overflow-y-auto': pendingApps.length > 1 }">
     <template v-slot:title>
       <h2 class="flex items-center justify-center w-full mx-auto m-0">
         {{ pendingApps.length ? 'Novos apps identificados' : 'Buscando novos aplicativos' }}
@@ -41,7 +41,7 @@ export default {
   @include scroll-bar(5px);
 
   &.has-content {
-    min-height: 210px;
+    // min-height: 210px;
   }
   .badge {
     background: $accent;
