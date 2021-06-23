@@ -20,6 +20,7 @@ async function createWindow() {
     maxWidth: 1400,
     minHeight: 800,
     maxHeight: 1200,
+    icon: './public/app-icon.ico',
     // frame: false,
     show: false,
     movable: true,
