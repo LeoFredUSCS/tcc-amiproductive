@@ -231,12 +231,12 @@ const state = () => ({
       dominantTags: [
         {
           tagName: 'Jogos',
-          percentage: 27,
+          percentage: 49,
           isAggregate: false
         },
         {
           tagName: 'Internet',
-          percentage: 10,
+          percentage: 13,
           isAggregate: false
         },
         {
@@ -246,12 +246,12 @@ const state = () => ({
         },
         {
           tagName: 'Notícias',
-          percentage: 17,
+          percentage: 2,
           isAggregate: false
         },
         {
           tagName: 'Mídias',
-          percentage: 28,
+          percentage: 18,
           isAggregate: false
         }
       ]

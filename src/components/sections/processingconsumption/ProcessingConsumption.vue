@@ -85,7 +85,7 @@ export default {
         this.chartData.labels[i] = process.process_name
         const value = process.cpu.percentage * 100
         total += value
-        this.chartData.datasets[0].data[i] = value
+        this.chartData.datasets[0].data[i] = value.toFixed(2)
       })
 
       if (total < 100) {

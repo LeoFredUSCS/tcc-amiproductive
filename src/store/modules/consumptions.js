@@ -13,7 +13,7 @@ function defaultState() {
           percentage: 0.3
         },
         cpu: {
-          percentage: 0.2166
+          percentage: 0.2123
         },
         power: {
           percentage: 0.4
@@ -43,7 +43,7 @@ function defaultState() {
           percentage: 0.3
         },
         cpu: {
-          percentage: 0.0366
+          percentage: 0.0344
         },
         power: {
           percentage: 0.4
@@ -58,7 +58,7 @@ function defaultState() {
           percentage: 0.3
         },
         cpu: {
-          percentage: 0.2266
+          percentage: 0.2267
         },
         power: {
           percentage: 0.4
@@ -73,7 +73,7 @@ function defaultState() {
           percentage: 0.3
         },
         cpu: {
-          percentage: 0.1666
+          percentage: 0.1705
         },
         power: {
           percentage: 0.4
@@ -88,7 +88,7 @@ function defaultState() {
           percentage: 0.3
         },
         cpu: {
-          percentage: 0.0566
+          percentage: 0.0598
         },
         power: {
           percentage: 0.4
