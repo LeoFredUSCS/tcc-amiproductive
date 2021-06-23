@@ -5,7 +5,7 @@
     </template>
     <template v-slot:content>
       <transition-group name="list-complete" mode="out-in" class="performance-container relative flex justify-around" tag="div">
-        <TagPerformance v-for="(tag, i) in topTags" :key="i" :tag="tag" :biggestActivity="biggestActivity" />
+        <TagPerformance v-for="(tag, i) in topTags" :key="i" :tag="tag" :biggestActivity="biggestActivity" class="list-complete-item" />
       </transition-group>
     </template>
   </Section>
@@ -38,8 +38,8 @@ export default {
     biggestActivity() {
       return this.topTags
         .map(tag => tag.tagActivity())
-        .reduce((acc, curr) => {
-          return acc > curr ? acc : curr
+        .reduce((first, next) => {
+          return first > next ? first : next
         })
     }
   }
@@ -50,20 +50,19 @@ export default {
 .performance-container {
   height: 390px;
 }
-.list-complete-item {
-  transition: all 1s;
-  display: inline-block;
-  margin-right: 10px;
-}
+
 .list-complete-enter,
 .list-complete-leave-to {
   opacity: 0;
-  transform: translateY(30px);
 }
 .list-complete-leave-active {
   position: absolute;
+  right: -30px;
+  bottom: 0;
 }
 .list-complete-move {
-  transition: all 1s;
+  background: #eee;
+  border-radius: 15px;
+  transition: all 1500ms;
 }
 </style>

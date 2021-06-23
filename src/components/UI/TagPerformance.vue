@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center mt-auto list-complete-item transition-all">
+  <div class="flex flex-col items-center mt-auto transition duration-500">
     <div class="bar-wrapper flex flex-col justify-end items-center mb-4">
       <div class="relative percentage-bar flex rounded-full bg-primary-dark transition-all duration-1000" :style="{ 'max-height': barSize.toFixed(2) + '%' }">
         <TimeSpan :activity="tag.tagActivity().toString()" :is-total-activity="true" class="timespan mb-4 absolute bottom-full w-max" />
@@ -40,6 +40,7 @@ export default {
 <style lang="scss" scoped>
 .bar-wrapper {
   height: 300px;
+  // width: 100px;
   .percentage-bar {
     height: 100%;
     width: 15px;

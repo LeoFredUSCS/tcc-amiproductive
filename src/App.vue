@@ -34,8 +34,8 @@ export default {
   },
   mounted() {
     let initDay = moment()
-      .set('hour', 8)
-      .set('minute', 37)
+      .set('hour', 9)
+      .set('minute', 42)
       .format()
 
     this.initDay(initDay)
@@ -69,16 +69,22 @@ export default {
       let currentHour = moment().hour()
       let startedAt = moment(this.myDayHasStartedAt).hour()
       let difference = currentHour - startedAt
-      return parseInt(Math.random() * (difference - 1) + 1)
+      return parseInt(Math.random() * (difference - 0) + 0)
+    },
+    generateRandomMinutes(updatedHour) {
+      let currentMinute = moment().minutes()
+      let startedAt = moment(this.myDayHasStartedAt).minutes()
+      let difference = updatedHour === 0 ? (startedAt < currentMinute ? currentMinute : 59) : 59
+      return parseInt(Math.random() * (difference - 0) + 0)
     },
     generateRandomMin() {
-      let final = parseInt(Math.random() * (59 - 1) + 1)
+      let final = parseInt(Math.random() * (59 - 0) + 0)
       return final
     },
     updateAppsStartingTime() {
       this.processes.map(process => {
         let updatedHour = this.generateRandomHour()
-        let updatedMin = this.generateRandomMin()
+        let updatedMin = this.generateRandomMinutes(updatedHour)
         const processData = {
           id: process.id,
           started_at: moment(this.myDayHasStartedAt)

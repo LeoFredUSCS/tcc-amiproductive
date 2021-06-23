@@ -1,14 +1,17 @@
 <template>
-  <Section class="edit-app-container flex-grow" :class="{ 'h-full overflow-y-auto': trackingApps.length >= 4, 'has-content': trackingApps.length }">
+  <Section
+    class="edit-app-container flex-grow overflow-x-hidden"
+    :class="{ 'h-full overflow-y-auto': trackingApps.length >= 4, 'has-content': trackingApps.length }"
+  >
     <template v-slot:title>
       <h2>Categorize seus aplicativos</h2>
     </template>
     <template v-slot:content>
       <div class="flex flex-col">
         <NewTagForm class="mt-5" />
-        <ul class="mt-10">
-          <AppBlock v-for="app in trackingApps" :app="app" :key="app.name" />
-        </ul>
+        <transition-group mode="in-out" name="list-complete" class="mt-10" tag="ul">
+          <AppBlock v-for="app in trackingApps" :app="app" :key="app.name" class="list-complete-item" />
+        </transition-group>
       </div>
       <div v-if="!hasTrackingApps" class="flex flex-col items-center">
         <h3 class="text-lg text-center leading-6 font-bold mb-4 border-2 border-gray rounded-xl p-2">
@@ -69,5 +72,17 @@ export default {
       }
     }
   }
+}
+.list-complete-item {
+  transition: all 500ms;
+}
+.list-complete-enter-active,
+.list-complete-enter {
+  opacity: 0;
+  transform: translateX(90px);
+}
+.list-complete-leave-active {
+  position: absolute;
+  width: 100%;
 }
 </style>

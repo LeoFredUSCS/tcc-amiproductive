@@ -1,5 +1,5 @@
 <template>
-  <Section class="new-app-section flex-shrink" :class="{ 'has-content overflow-y-auto': pendingApps.length > 1 }">
+  <Section class="new-app-section flex-shrink overflow-x-hidden" :class="{ 'has-content overflow-y-auto': pendingApps.length > 1 }">
     <template v-slot:title>
       <h2 class="flex items-center justify-center w-full mx-auto m-0">
         {{ pendingApps.length ? 'Novos apps identificados' : 'Buscando novos aplicativos' }}
@@ -10,9 +10,11 @@
       <div class="searching-feedback absolute m-auto" v-if="!pendingApps.length" />
     </template>
     <template v-slot:content>
-      <ul>
-        <AppBlock v-for="app in pendingApps" :app="app" :key="app.name" />
-      </ul>
+      <!-- <ul> -->
+      <transition-group name="list-complete" mode="out-in" class="relative" tag="ul">
+        <AppBlock v-for="app in pendingApps" :app="app" :key="app.name" class="list-complete-item" />
+      </transition-group>
+      <!-- </ul> -->
     </template>
   </Section>
 </template>
@@ -39,10 +41,7 @@ export default {
 <style lang="scss" scoped>
 .new-app-section {
   @include scroll-bar(5px);
-
-  &.has-content {
-    // min-height: 210px;
-  }
+  min-height: 110px;
   .badge {
     background: $accent;
     color: white;
@@ -84,5 +83,23 @@ export default {
   100% {
     transform: translateY(-6px);
   }
+}
+.list-complete-item {
+  transition: all 500ms;
+}
+.list-complete-leave-active,
+.list-complete-leave-to {
+  opacity: 0;
+  transform: translate(90px, -45px);
+}
+.list-complete-enter-active,
+.list-complete-enter-to {
+  opacity: 0;
+  transform: translate(90px, 0px);
+}
+
+.list-complete-leave-active {
+  position: absolute;
+  width: 100%;
 }
 </style>
